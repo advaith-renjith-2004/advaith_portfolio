@@ -80,8 +80,8 @@ export function CardPreview({
         }
       }}
       className={cn(
-        'group relative flex cursor-pointer select-none flex-col gap-3 overflow-hidden rounded-lg border bg-card p-4 pl-6 shadow-sm transition-all duration-200 ease-out',
-        'hover:-translate-y-0.5 hover:shadow-md',
+        'group relative flex cursor-pointer select-none flex-col gap-3 overflow-hidden rounded-lg border border-white/5 bg-zinc-950/40 p-4 pl-6 shadow-sm backdrop-blur-sm transition-all duration-300 ease-out',
+        'hover:-translate-y-0.5 hover:border-white/20 hover:shadow-[0_8px_30px_rgb(0,0,0,0.6)]',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2',
         isDragging && 'z-50 rotate-3 scale-[1.02] cursor-grabbing opacity-95 shadow-xl',
         className

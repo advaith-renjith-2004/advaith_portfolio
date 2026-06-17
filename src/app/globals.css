@@ -33,53 +33,53 @@
   }
 
   [data-theme='dark'] {
-    --background: 240 10% 2%;
+    --background: 0 0% 0%;
     --foreground: 0 0% 98%;
-    --card: 240 10% 3%;
+    --card: 0 0% 2%;
     --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3%;
+    --popover: 0 0% 2%;
     --popover-foreground: 0 0% 98%;
     --primary: 0 0% 98%;
     --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 8%;
+    --secondary: 240 3.7% 6%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 8%;
+    --muted: 240 3.7% 6%;
     --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 8%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 10%;
-    --input: 240 3.7% 10%;
-    --ring: 240 4.9% 83.9%;
-    --spotlight-bg: 0 0% 10%;
-  }
-  .dark {
-    --background: 0 0% 2%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 6%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 6%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 7%;
+    --accent: 240 3.7% 6%;
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 8%;
     --input: 0 0% 8%;
+    --ring: 240 4.9% 83.9%;
+    --spotlight-bg: 0 0% 8%;
+  }
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 2%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 2%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 4%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 4%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 5%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 6%;
+    --input: 0 0% 6%;
     --ring: 0 0% 83.1%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
-    --spotlight-bg: 0 0% 10%;
+    --spotlight-bg: 0 0% 8%;
   }
 }
 

@@ -5,6 +5,7 @@ import { Header } from '@/components/layout/Header'
 import { ToastProvider } from '@/components/ui/Toast'
 import { Cursor } from '@/components/ui/Cursor'
 import { AIBackground } from '@/components/ui/AIBackground'
+import { ClockWidget } from '@/components/ui/ClockWidget'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -57,6 +58,7 @@ export default function RootLayout({
       >
         <AIBackground />
         <Cursor />
+        <ClockWidget />
         <ToastProvider>
           <div className="relative z-10 flex min-h-screen flex-col">
             <Header />

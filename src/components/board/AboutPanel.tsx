@@ -46,7 +46,7 @@ export function AboutPanel({
   return (
     <aside
       className={cn(
-        'flex flex-col rounded-xl border bg-background shadow-sm transition-all duration-300',
+        'flex flex-col rounded-xl border border-white/5 bg-zinc-950/40 shadow-sm backdrop-blur-md transition-all duration-300',
         'relative w-full md:sticky md:top-[88px] md:w-[280px] lg:w-[320px]',
         'md:h-fit'
       )}
