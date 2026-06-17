@@ -69,14 +69,25 @@ function HomeContent() {
         // Fetch profile data
         const profile = await fetchProfileData(supabase)
 
-        setServerData({
-          columns: columnsOnly,
-          cards: allCards,
-          tags: tagsData,
-        })
-        setProfileData(profile)
+        if (columnsOnly.length > 0) {
+          setServerData({
+            columns: columnsOnly,
+            cards: allCards,
+            tags: tagsData,
+          })
+          setProfileData(profile)
+        } else {
+          throw new Error('Database is empty or client not configured')
+        }
       } catch (error) {
-        console.error('Failed to fetch board data:', error)
+        console.warn('Supabase fetch failed, loading local mock fallback data:', error)
+        const { MOCK_BOARD_COLUMNS, MOCK_BOARD_CARDS, MOCK_BOARD_TAGS, MOCK_PROFILE_DATA } = await import('@/lib/mockData')
+        setServerData({
+          columns: MOCK_BOARD_COLUMNS,
+          cards: MOCK_BOARD_CARDS,
+          tags: MOCK_BOARD_TAGS,
+        })
+        setProfileData(MOCK_PROFILE_DATA)
       } finally {
         setIsLoading(false)
       }
