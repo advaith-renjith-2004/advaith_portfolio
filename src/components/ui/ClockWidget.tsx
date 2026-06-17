@@ -91,9 +91,11 @@ function ClockRow({ code, tz }: { code: string; tz: string }) {
 }
 
 export function ClockWidget() {
+  const [mounted, setMounted] = useState(false)
   const [userAirport, setUserAirport] = useState<Airport | null>(null)
 
   useEffect(() => {
+    setMounted(true)
     if (!navigator.geolocation) {
       const tz = Intl.DateTimeFormat().resolvedOptions().timeZone
       const match = AIRPORTS.find((a) => a.tz === tz)
@@ -116,6 +118,8 @@ export function ClockWidget() {
   const userTz = userAirport?.tz ?? Intl.DateTimeFormat().resolvedOptions().timeZone
   const userCode = userAirport?.code ?? '···'
   const sameAsTRV = userAirport?.code === 'TRV'
+
+  if (!mounted) return null
 
   return (
     <div className="fixed bottom-5 left-5 z-40 flex flex-col gap-1.5 border border-white/5 bg-black/40 p-2.5 px-3 rounded-lg backdrop-blur-md text-foreground select-none pointer-events-none shadow-[0_4px_20px_-8px_rgba(0,0,0,0.8)]">
