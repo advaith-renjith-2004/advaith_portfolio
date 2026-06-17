@@ -1,0 +1,114 @@
+'use client'
+
+import { Pin, GripVertical } from 'lucide-react'
+import { cn } from '@/lib/utils'
+import { CardSpotlight } from '@/components/ui/card-spotlight'
+import { TYPE_SPOTLIGHT_COLORS } from '@/lib/card-colors'
+import { CardTags } from './CardTags'
+import { CardReactions } from './CardReactions'
+import { CardDateRange } from './CardDateRange'
+import type { CardWithRelations, CardType } from '@/types'
+
+interface CardPreviewProps {
+  card: CardWithRelations
+  onClick?: () => void
+  isAdmin?: boolean
+  isDragging?: boolean
+}
+
+const TYPE_COLORS: Record<CardType, string> = {
+  experience: 'bg-sky-500',
+  project: 'bg-emerald-500',
+  skill: 'bg-violet-500',
+  education: 'bg-amber-500',
+  about: 'bg-slate-500',
+}
+
+export function CardPreview({
+  card,
+  onClick,
+  isAdmin = false,
+  isDragging = false,
+}: CardPreviewProps) {
+  return (
+    <CardSpotlight
+      radius={200}
+      colors={TYPE_SPOTLIGHT_COLORS[card.card_type]}
+      role="button"
+      tabIndex={0}
+      onClick={onClick}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault()
+          onClick?.()
+        }
+      }}
+      className={cn(
+        'group relative flex cursor-pointer select-none flex-col gap-3 overflow-hidden rounded-lg border bg-card p-4 pl-6 shadow-sm transition-all duration-200 ease-out',
+        'hover:-translate-y-0.5 hover:shadow-md',
+        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2',
+        isDragging && 'z-50 rotate-3 scale-[1.02] cursor-grabbing opacity-95 shadow-xl'
+      )}
+    >
+      {/* Accent Bar */}
+      <div className={cn('absolute -left-6 bottom-0 top-0 w-1', TYPE_COLORS[card.card_type])} />
+
+      {/* Header: Pin, Title, Subtitle, Drag Handle */}
+      <div className="flex items-start justify-between gap-2">
+        <div className="flex min-w-0 flex-col gap-0.5">
+          {card.is_pinned && (
+            <div className="mb-1 flex items-center gap-1 text-xs font-medium text-muted-foreground">
+              <Pin className="h-3 w-3 rotate-45" />
+              <span>Pinned</span>
+            </div>
+          )}
+          <h3 className="truncate pr-2 text-base font-semibold leading-tight">{card.title}</h3>
+          {card.subtitle && (
+            <p className="truncate text-sm text-muted-foreground">{card.subtitle}</p>
+          )}
+        </div>
+
+        {/* Grip handle - hidden on mobile since drag-drop is desktop only */}
+        {isAdmin && (
+          <div
+            className="-mr-2 -mt-2 hidden cursor-grab p-1 text-muted-foreground/50 opacity-0 transition-opacity hover:text-muted-foreground active:cursor-grabbing group-hover:opacity-100 md:block"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <GripVertical className="h-4 w-4" />
+          </div>
+        )}
+      </div>
+
+      {/* Date Range */}
+      {card.date_start && (
+        <div>
+          <CardDateRange startDate={card.date_start} endDate={card.date_end} />
+        </div>
+      )}
+
+      {/* Preview Text */}
+      {card.preview_text && (
+        <p className="line-clamp-3 text-sm leading-relaxed text-muted-foreground">
+          {card.preview_text}
+        </p>
+      )}
+
+      {/* Footer: Tags & Reactions */}
+      <div className="mt-1 flex flex-col gap-3">
+        <CardTags tags={card.tags} />
+
+        {/* Mock reactions for now since they are not in CardWithRelations yet */}
+        {/* In a real app, we'd pass these from props or join them in the query */}
+        <CardReactions
+          reactions={{
+            thumbsup: 0,
+            fire: 0,
+            eyes: 0,
+            lightbulb: 0,
+            ...((card as any).reactions_by_type || {}),
+          }}
+        />
+      </div>
+    </CardSpotlight>
+  )
+}
