@@ -4,6 +4,8 @@ import { AboutPanel } from './AboutPanel'
 import { Column } from './Column'
 import { BoardSkeleton } from './BoardSkeleton'
 import type { Column as ColumnType, CardWithRelations, Tag, ProfileData } from '@/types'
+import { StatusBand } from '@/components/ui/StatusBand'
+import { SkillsMarquee } from '@/components/ui/SkillsMarquee'
 
 // Fuse.js configuration for fuzzy search
 const fuseOptions: IFuseOptions<CardWithRelations & { tagNames: string }> = {
@@ -90,6 +92,12 @@ export function Board({
 
   return (
     <div className="flex h-full w-full flex-col overflow-hidden">
+      {/* Status Band */}
+      <StatusBand />
+
+      {/* Skills Marquee */}
+      <SkillsMarquee />
+
       {/* Filters Bar */}
       <BoardFilters
         tags={tags}

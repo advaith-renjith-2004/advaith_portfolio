@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { ThemeToggle } from '@/components/ui/ThemeToggle'
+import { CelestialToggle } from '@/components/ui/CelestialToggle'
 import { Button } from '@/components/ui/Button'
 import { Icons } from '@/components/icons'
 
@@ -20,7 +20,7 @@ export function Header() {
             {/* Search or other controls could go here */}
           </div>
           <nav className="flex items-center space-x-2">
-            <ThemeToggle />
+            <CelestialToggle />
             <Button variant="ghost" size="icon" asChild>
               <a href="https://github.com/advaith-renjith-2004" target="_blank" rel="noreferrer">
                 <Icons.Github className="h-5 w-5" />

@@ -14,6 +14,7 @@ import type { Column, CardWithRelations, TagWithCount, ProfileData } from '@/typ
 import { useEffect, useState, Suspense } from 'react'
 
 import { BottomRightHUD } from '@/components/board/BottomRightHUD'
+import { AmbientPlayer } from '@/components/ui/AmbientPlayer'
 
 export default function Home() {
   return (
@@ -124,6 +125,7 @@ function HomeContent() {
       />
 
       <BottomRightHUD />
+      <AmbientPlayer />
     </main>
   )
 }

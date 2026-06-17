@@ -8,6 +8,7 @@ import { CardTags } from './CardTags'
 import { CardReactions } from './CardReactions'
 import { CardDateRange } from './CardDateRange'
 import type { CardWithRelations, CardType } from '@/types'
+import { useMotionValue, useTransform, motion } from 'framer-motion'
 
 interface CardPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
   card: CardWithRelations
@@ -32,8 +33,41 @@ export function CardPreview({
   className,
   ...props
 }: CardPreviewProps) {
+  const x = useMotionValue(0)
+  const y = useMotionValue(0)
+
+  const rotateX = useTransform(y, [-0.5, 0.5], [6, -6])
+  const rotateY = useTransform(x, [-0.5, 0.5], [-6, 6])
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect()
+    const width = rect.width
+    const height = rect.height
+    const mouseX = e.clientX - rect.left - width / 2
+    const mouseY = e.clientY - rect.top - height / 2
+    x.set(mouseX / width)
+    y.set(mouseY / height)
+  }
+
+  const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+    x.set(0)
+    y.set(0)
+    props.onMouseLeave?.(e)
+  }
+
   return (
-    <CardSpotlight
+    <motion.div
+      style={{
+        rotateX,
+        rotateY,
+        transformStyle: 'preserve-3d',
+        perspective: 800,
+      }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="w-full"
+    >
+      <CardSpotlight
       radius={200}
       colors={TYPE_SPOTLIGHT_COLORS[card.card_type]}
       role="button"
@@ -112,5 +146,6 @@ export function CardPreview({
         />
       </div>
     </CardSpotlight>
+    </motion.div>
   )
 }
