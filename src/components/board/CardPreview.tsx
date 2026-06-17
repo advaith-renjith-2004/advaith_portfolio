@@ -9,7 +9,7 @@ import { CardReactions } from './CardReactions'
 import { CardDateRange } from './CardDateRange'
 import type { CardWithRelations, CardType } from '@/types'
 
-interface CardPreviewProps {
+interface CardPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
   card: CardWithRelations
   onClick?: () => void
   isAdmin?: boolean
@@ -29,6 +29,8 @@ export function CardPreview({
   onClick,
   isAdmin = false,
   isDragging = false,
+  className,
+  ...props
 }: CardPreviewProps) {
   return (
     <CardSpotlight
@@ -47,8 +49,10 @@ export function CardPreview({
         'group relative flex cursor-pointer select-none flex-col gap-3 overflow-hidden rounded-lg border bg-card p-4 pl-6 shadow-sm transition-all duration-200 ease-out',
         'hover:-translate-y-0.5 hover:shadow-md',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2',
-        isDragging && 'z-50 rotate-3 scale-[1.02] cursor-grabbing opacity-95 shadow-xl'
+        isDragging && 'z-50 rotate-3 scale-[1.02] cursor-grabbing opacity-95 shadow-xl',
+        className
       )}
+      {...props}
     >
       {/* Accent Bar */}
       <div className={cn('absolute -left-6 bottom-0 top-0 w-1', TYPE_COLORS[card.card_type])} />
@@ -69,14 +73,12 @@ export function CardPreview({
         </div>
 
         {/* Grip handle - hidden on mobile since drag-drop is desktop only */}
-        {isAdmin && (
-          <div
-            className="-mr-2 -mt-2 hidden cursor-grab p-1 text-muted-foreground/50 opacity-0 transition-opacity hover:text-muted-foreground active:cursor-grabbing group-hover:opacity-100 md:block"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <GripVertical className="h-4 w-4" />
-          </div>
-        )}
+        <div
+          className="-mr-2 -mt-2 hidden cursor-grab p-1 text-muted-foreground/50 opacity-0 transition-opacity hover:text-muted-foreground active:cursor-grabbing group-hover:opacity-100 md:block"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <GripVertical className="h-4 w-4" />
+        </div>
       </div>
 
       {/* Date Range */}

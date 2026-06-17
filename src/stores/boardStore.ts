@@ -94,6 +94,8 @@ export const useBoardStore = create<BoardState>((set, get) => ({
 
     try {
       const supabase = createClient()
+      if (!supabase) return
+
       const { error } = await supabase
         .from('cards')
         .update({ column_id: columnId, position })
