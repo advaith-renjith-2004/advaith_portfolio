@@ -24,8 +24,8 @@ const cormorantGaramond = Cormorant_Garamond({
 })
 
 export const metadata: Metadata = {
-  title: 'KanBan App',
-  description: 'A modern kanban board application',
+  title: 'Advaith Renjith - Portfolio',
+  description: 'Cinematic Kanban resume and developer portfolio of Advaith Renjith',
 }
 
 export default function RootLayout({
