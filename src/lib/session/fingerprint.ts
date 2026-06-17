@@ -78,11 +78,11 @@ async function getCanvasFingerprint(): Promise<string | undefined> {
 
     // Draw text with shadows
     ctx.fillStyle = '#069'
-    ctx.fillText('KanBan fingerprint', 2, 15)
+    ctx.fillText('Advaith Portfolio fingerprint', 2, 15)
 
     // Draw semi-transparent text
     ctx.fillStyle = 'rgba(102, 204, 0, 0.7)'
-    ctx.fillText('KanBan fingerprint', 4, 17)
+    ctx.fillText('Advaith Portfolio fingerprint', 4, 17)
 
     // Get data URL (limited length for efficiency)
     return canvas.toDataURL().slice(0, 100)

@@ -83,7 +83,7 @@ INSERT INTO cards (id, column_id, card_type, position, title, subtitle, preview_
         'Welcome to My Portfolio',
         'College Student & Dev',
         'Final-year Computer Science student interested in Web Development and Application Architecture.',
-        E'# About Me\n\nI''m a passionate final-year Computer Science student going into my senior year. I enjoy coding, designing clean UI layouts, and structuring robust application backends. \n\n## My Journey\n- **Internship at Tachlog Pvt Ltd**: Gained hands-on experience building web apps and understanding end-to-end application architecture.\n- **B.Tech Studies**: Currently focusing on software engineering, database design, and systems.\n\n## Areas of Focus\n- **Frontend Development**: React, Next.js, Tailwind CSS\n- **Backend Engineering**: Node.js, REST APIs, PostgreSQL\n- **Design & Architecture**: Designing data schemas and modular code structures\n\nFeel free to interact with my Kanban board to explore my background!',
+        E'# About Me\n\nI''m a passionate final-year Computer Science student going into my senior year. I enjoy coding, designing clean UI layouts, and structuring robust application backends. \n\n## My Journey\n- **Internship at Tachlog Pvt Ltd**: Gained hands-on experience building web apps and understanding end-to-end application architecture.\n- **B.Tech Studies**: Currently focusing on software engineering, database design, and systems.\n\n## Areas of Focus\n- **Frontend Development**: React, Next.js, Tailwind CSS\n- **Backend Engineering**: Node.js, REST APIs, PostgreSQL\n- **Design & Architecture**: Designing data schemas and modular code structures\n\nFeel free to interact with my project board to explore my background!',
         true
     )
 ON CONFLICT (id) DO NOTHING;
@@ -118,10 +118,10 @@ INSERT INTO cards (id, column_id, card_type, position, title, subtitle, preview_
         '33333333-3333-3333-3333-333333333333',
         'project',
         0,
-        'Cinematic Kanban Resume',
+        'Cinematic Interactive Portfolio',
         'Next.js + Supabase Portfolio',
-        'An interactive Kanban board portfolio styled with dark room aesthetics, canvas particles, a custom cursor, and Supabase integration.',
-        E'# Cinematic Kanban Resume\n\nThis very website! A digital resume presented as an interactive Kanban board.\n\n## Tech Stack\n- **Framework**: Next.js 14 (App Router)\n- **Database**: Supabase (PostgreSQL + real-time reactions)\n- **Animations**: Framer Motion for board layouts and hover transitions\n- **Aesthetics**: Custom HTML5 canvas particle background, custom cursor, and monochrome spatial HUD elements.',
+        'An interactive board-style portfolio styled with dark room aesthetics, canvas particles, a custom cursor, and Supabase integration.',
+        E'# Cinematic Interactive Portfolio\n\nThis very website! A digital resume presented as an interactive board layout.\n\n## Tech Stack\n- **Framework**: Next.js 14 (App Router)\n- **Database**: Supabase (PostgreSQL + real-time reactions)\n- **Animations**: Framer Motion for board layouts and hover transitions\n- **Aesthetics**: Custom HTML5 canvas particle background, custom cursor, and monochrome spatial HUD elements.',
         NULL,
         true
     ),
@@ -211,7 +211,7 @@ INSERT INTO card_tags (card_id, tag_id) VALUES
     ('ca222222-1111-1111-1111-111111111111', 'c1111111-1111-1111-1111-111111111111'), -- PostgreSQL
     ('ca222222-1111-1111-1111-111111111111', 'f2222222-2222-2222-2222-222222222222'), -- App Architecture
 
-    -- Project 1 (Kanban Portfolio)
+    -- Project 1 (Interactive Portfolio)
     ('ca333333-1111-1111-1111-111111111111', 'b2222222-2222-2222-2222-222222222222'), -- Next.js
     ('ca333333-1111-1111-1111-111111111111', 'c3333333-3333-3333-3333-333333333333'), -- Supabase
     ('ca333333-1111-1111-1111-111111111111', 'b5555555-5555-5555-5555-555555555555'), -- Tailwind CSS

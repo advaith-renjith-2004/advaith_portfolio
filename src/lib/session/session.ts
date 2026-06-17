@@ -11,8 +11,8 @@ import { createClient } from '@/lib/supabase/client'
 import { generateFingerprint, generateFallbackSessionId, isValidFingerprint } from './fingerprint'
 import type { SessionInfo } from '@/types'
 
-const SESSION_STORAGE_KEY = 'kanban_session'
-const SESSION_COOKIE_NAME = 'kanban_session_id'
+const SESSION_STORAGE_KEY = 'portfolio_session'
+const SESSION_COOKIE_NAME = 'portfolio_session_id'
 
 /**
  * Gets or creates a session for the current browser.
@@ -65,6 +65,16 @@ export async function getOrCreateSession(): Promise<SessionInfo> {
   const sessionId = generateFallbackSessionId()
 
   const supabase = createClient()
+
+  if (!supabase) {
+    const sessionInfo: SessionInfo = {
+      sessionId,
+      fingerprint,
+      isNew: true,
+    }
+    storeSession(sessionInfo)
+    return sessionInfo
+  }
 
   // Check if session exists for this fingerprint
   const { data: existingSession } = await supabase
@@ -200,6 +210,7 @@ function storeSession(session: SessionInfo): void {
  */
 async function updateLastSeen(sessionId: string): Promise<void> {
   const supabase = createClient()
+  if (!supabase) return
 
   await supabase
     .from('sessions')

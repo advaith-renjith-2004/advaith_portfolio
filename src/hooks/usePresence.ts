@@ -113,6 +113,11 @@ export function usePresence(): PresenceState {
       displayName,
     }))
 
+    if (!supabase) {
+      console.warn('[Presence] Supabase client not initialized. Presence tracking disabled.')
+      return
+    }
+
     // Create presence channel
     const channel = supabase.channel('board-presence', {
       config: {

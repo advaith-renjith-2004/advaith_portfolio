@@ -5,6 +5,7 @@ import { createClient } from './client'
  */
 export function getStorageUrl(bucket: string, path: string): string {
   const supabase = createClient()
+  if (!supabase) return ''
   const { data } = supabase.storage.from(bucket).getPublicUrl(path)
   return data.publicUrl
 }

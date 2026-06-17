@@ -56,7 +56,7 @@ export async function createClient() {
  */
 export async function getSessionIdFromCookies(): Promise<string | null> {
   const cookieStore = await cookies()
-  return cookieStore.get('kanban_session_id')?.value ?? null
+  return cookieStore.get('portfolio_session_id')?.value ?? null
 }
 
 // Export the client type for external usage

@@ -84,6 +84,10 @@ export function useRealtimeSubscriptions() {
 
   useEffect(() => {
     const supabase = createClient()
+    if (!supabase) {
+      console.warn('[Realtime] Supabase client not initialized. Realtime subscriptions disabled.')
+      return
+    }
 
     const channel = supabase
       .channel('board-changes')
@@ -232,6 +236,7 @@ export function useRealtimeCards() {
 
   useEffect(() => {
     const supabase = createClient()
+    if (!supabase) return
 
     const channel = supabase
       .channel('cards-changes')
