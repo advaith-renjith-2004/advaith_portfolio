@@ -1,7 +1,7 @@
 import type { ProfileData, Column, CardWithRelations, TagWithCount } from '@/types'
 
 export const MOCK_PROFILE_DATA: ProfileData = {
-  profileImageUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200',
+  profileImageUrl: '/profile.png',
   name: 'Advaith Renjith',
   title: 'Full-Stack Developer & App Architect',
   bio: 'Final-year Electrical and Computer Engineering student specializing in building responsive web applications and designing robust application architectures. Gained extensive hands-on experience in modern frontend development, REST APIs, and database design during my internship at Tachlog Pvt Ltd.',

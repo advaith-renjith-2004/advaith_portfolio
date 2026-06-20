@@ -35,7 +35,7 @@ export function BoardFilters({
     activeTagFilters.length > 0 || activeTypeFilters.length > 0 || searchQuery.length > 0
 
   return (
-    <div className="relative z-30 w-full border-b border-white/5 bg-black/20 backdrop-blur-md">
+    <div className="relative z-30 w-full border-b border-border/60 bg-card/45 dark:border-white/5 dark:bg-zinc-950/40 shadow-sm backdrop-blur-md">
       <div className="flex flex-col gap-4 p-4 md:flex-row md:items-center md:justify-between">
         <div className="flex flex-1 flex-col gap-4 md:flex-row md:items-center">
           {/* Search */}
@@ -55,14 +55,14 @@ export function BoardFilters({
 
         {/* Action Controls */}
         <div className="flex items-center gap-3 shrink-0">
-          <div className="flex items-center rounded-lg border border-white/5 bg-zinc-950/40 p-0.5 backdrop-blur-sm">
+          <div className="flex items-center rounded-lg border border-border bg-muted/50 dark:border-white/5 dark:bg-zinc-950/40 p-0.5 backdrop-blur-sm">
             <button
               type="button"
               onClick={() => onViewModeChange('vertical')}
               className={cn(
                 "flex h-8 w-8 items-center justify-center rounded-md transition-all duration-200",
                 viewMode === 'vertical'
-                  ? "bg-white/10 text-white shadow-sm"
+                  ? "bg-background text-foreground dark:bg-white/10 dark:text-white shadow-sm"
                   : "text-muted-foreground hover:text-foreground"
               )}
               title="Vertical List View"
@@ -75,7 +75,7 @@ export function BoardFilters({
               className={cn(
                 "flex h-8 w-8 items-center justify-center rounded-md transition-all duration-200",
                 viewMode === 'horizontal'
-                  ? "bg-white/10 text-white shadow-sm"
+                  ? "bg-background text-foreground dark:bg-white/10 dark:text-white shadow-sm"
                   : "text-muted-foreground hover:text-foreground"
               )}
               title="Horizontal Board View"

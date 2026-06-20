@@ -57,7 +57,9 @@ export function AboutPanel({
         onClick={() => setIsExpanded(!isExpanded)}
       >
         <div className="flex items-center gap-3">
-          <img src={profileImageUrl} alt={name} className="h-10 w-10 rounded-full object-cover" />
+          <div className="h-10 w-10 rounded-full overflow-hidden">
+            <img src={profileImageUrl} alt={name} className="h-full w-full object-cover scale-[1.16]" />
+          </div>
           <div>
             <h2 className="text-sm font-bold">{name}</h2>
             <p className="text-xs text-muted-foreground">{title}</p>
@@ -72,11 +74,11 @@ export function AboutPanel({
       <div className={cn('flex flex-col gap-6 p-6 pt-0 md:pt-6', !isExpanded && 'hidden md:flex')}>
         {/* Profile Header (Desktop) */}
         <div className="hidden flex-col items-center gap-4 text-center md:flex">
-          <div className="relative h-[120px] w-[120px]">
+          <div className="relative h-[120px] w-[120px] rounded-full overflow-hidden border-4 border-background shadow-sm">
             <img
               src={profileImageUrl}
               alt={name}
-              className="h-full w-full rounded-full border-4 border-background object-cover shadow-sm"
+              className="h-full w-full object-cover scale-[1.16]"
             />
           </div>
           <div>

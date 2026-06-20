@@ -366,7 +366,7 @@ export async function fetchProfileData(supabase: TypedSupabaseClient): Promise<P
 
   // Transform database fields to ProfileData format
   return {
-    profileImageUrl: data.profile_image_url || 'https://github.com/shadcn.png',
+    profileImageUrl: data.profile_image_url || '/profile.png',
     name: data.full_name,
     title: data.title,
     bio: data.professional_summary || '',

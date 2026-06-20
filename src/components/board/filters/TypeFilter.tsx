@@ -33,7 +33,7 @@ export function TypeFilter({ activeTypes, onChange }: TypeFilterProps) {
       <Button
         variant="outline"
         size="sm"
-        className="h-9 min-w-[120px] justify-between gap-2"
+        className="h-10 md:h-9 min-w-[120px] justify-between gap-2"
         onClick={() => setIsOpen(!isOpen)}
       >
         <span className="truncate">
