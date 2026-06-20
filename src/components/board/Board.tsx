@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo, useState, useEffect } from 'react'
 import Fuse, { type IFuseOptions } from 'fuse.js'
 import { AboutPanel } from './AboutPanel'
 import { Column } from './Column'
@@ -6,6 +6,7 @@ import { BoardSkeleton } from './BoardSkeleton'
 import type { Column as ColumnType, CardWithRelations, Tag, ProfileData } from '@/types'
 import { StatusBand } from '@/components/ui/StatusBand'
 import { SkillsMarquee } from '@/components/ui/SkillsMarquee'
+import { cn } from '@/lib/utils'
 
 // Fuse.js configuration for fuzzy search
 const fuseOptions: IFuseOptions<CardWithRelations & { tagNames: string }> = {
@@ -36,6 +37,21 @@ export function Board({
   isLoading = false,
   onCardClick,
 }: BoardProps) {
+  const [viewMode, setViewMode] = useState<'horizontal' | 'vertical'>('vertical')
+
+  // Load saved preference on mount
+  useEffect(() => {
+    const saved = localStorage.getItem('portfolio-view-mode')
+    if (saved === 'horizontal' || saved === 'vertical') {
+      setViewMode(saved)
+    }
+  }, [])
+
+  const handleViewModeChange = (mode: 'horizontal' | 'vertical') => {
+    setViewMode(mode)
+    localStorage.setItem('portfolio-view-mode', mode)
+  }
+
   const {
     activeTagFilters,
     activeTypeFilters,
@@ -108,26 +124,40 @@ export function Board({
         onTypeFilterChange={setTypeFilters}
         onSearchChange={setSearchQuery}
         onClearFilters={clearFilters}
+        viewMode={viewMode}
+        onViewModeChange={handleViewModeChange}
       />
 
-      <div className="columns-scroll-container flex flex-1 flex-col gap-4 overflow-y-auto p-3 md:flex-row md:gap-6 md:overflow-x-auto md:overflow-y-hidden md:p-6">
+      <div className={cn(
+        "columns-scroll-container flex flex-1 flex-col gap-4 overflow-y-auto p-3 md:flex-row md:gap-6 md:p-6",
+        viewMode === 'horizontal' && "md:overflow-x-auto md:overflow-y-hidden"
+      )}>
         {/* Fixed/Sticky About Panel */}
         {profileData && <AboutPanel {...profileData} />}
 
-        {/* Columns Container - Vertical on mobile, horizontal scroll on desktop */}
-        <div className="flex-1 md:overflow-x-auto md:overflow-y-hidden">
-          <div className="flex flex-col gap-4 pb-2 md:h-full md:min-w-full md:flex-row md:pb-4">
+        {/* Columns Container */}
+        <div className={cn(
+          "flex-1",
+          viewMode === 'horizontal' && "md:overflow-x-auto md:overflow-y-hidden"
+        )}>
+          <div className={cn(
+            "flex flex-col gap-4 pb-2",
+            viewMode === 'horizontal'
+              ? "md:h-full md:min-w-full md:flex-row md:pb-4"
+              : "w-full md:gap-8 pb-4"
+          )}>
             {columns.map((column) => (
               <Column
                 key={column.id}
                 column={column}
                 cards={filteredCards.filter((c) => c.column_id === column.id)}
                 onCardClick={onCardClick}
+                isVertical={viewMode === 'vertical'}
               />
             ))}
 
             {/* Spacer for right padding in scroll view */}
-            <div className="w-2 shrink-0" />
+            {viewMode === 'horizontal' && <div className="w-2 shrink-0" />}
           </div>
         </div>
       </div>

@@ -14,9 +14,10 @@ interface ColumnProps {
   cards: CardWithRelations[]
   isAdmin?: boolean
   onCardClick?: (cardId: string) => void
+  isVertical?: boolean
 }
 
-export function Column({ column, cards, isAdmin = false, onCardClick }: ColumnProps) {
+export function Column({ column, cards, isAdmin = false, onCardClick, isVertical = false }: ColumnProps) {
   const [isDragOver, setIsDragOver] = useState(false)
   const [dragOverCardId, setDragOverCardId] = useState<string | null>(null)
   const [activeDragCardId, setActiveDragCardId] = useState<string | null>(null)
@@ -135,7 +136,12 @@ export function Column({ column, cards, isAdmin = false, onCardClick }: ColumnPr
   }
 
   return (
-    <div className="flex max-h-[60vh] w-full shrink-0 flex-col md:max-h-[calc(100vh-140px)] md:w-[280px] lg:w-[320px]">
+    <div className={cn(
+      "flex flex-col",
+      isVertical
+        ? "w-full h-auto"
+        : "max-h-[60vh] w-full shrink-0 md:max-h-[calc(100vh-140px)] md:w-[280px] lg:w-[320px]"
+    )}>
       {/* Column Header */}
       <div className="group flex items-center justify-between border-b border-transparent px-4 py-3 transition-colors hover:border-border">
         <div className="flex items-center gap-2">
@@ -166,7 +172,8 @@ export function Column({ column, cards, isAdmin = false, onCardClick }: ColumnPr
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
         className={cn(
-          'custom-scrollbar flex flex-1 flex-col gap-2 overflow-y-auto px-2 pb-4 pt-2 transition-all duration-200 md:gap-3 md:pb-6',
+          'custom-scrollbar flex flex-col gap-2 px-2 pb-4 pt-2 transition-all duration-200 md:gap-3 md:pb-6',
+          isVertical ? 'overflow-y-visible' : 'flex-1 overflow-y-auto',
           isDragOver ? 'rounded-lg bg-white/[0.03] ring-1 ring-white/10' : 'bg-transparent'
         )}
       >
