@@ -12,7 +12,7 @@ INSERT INTO public.personal_info (id, full_name, title, email, phone, linkedin_u
         1,
         'Advaith Renjith',
         'Full-Stack Developer & App Architect',
-        'advaithrenjith2004@gmail.com',
+        'advaithanjanarenjith@gmail.com',
         NULL,
         'https://linkedin.com/in/advaith-renjith',
         'Trivandrum, India',

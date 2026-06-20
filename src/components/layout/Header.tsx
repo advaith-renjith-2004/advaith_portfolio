@@ -38,7 +38,7 @@ export function Header() {
               </a>
             </Button>
             <Button variant="ghost" size="icon" asChild>
-              <a href="mailto:advaithrenjith2004@gmail.com">
+              <a href="mailto:advaithanjanarenjith@gmail.com">
                 <Icons.Mail className="h-5 w-5" />
                 <span className="sr-only">Email</span>
               </a>

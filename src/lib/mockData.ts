@@ -6,7 +6,7 @@ export const MOCK_PROFILE_DATA: ProfileData = {
   title: 'Full-Stack Developer & App Architect',
   bio: 'Final-year Electrical and Computer Engineering student specializing in building responsive web applications and designing robust application architectures. Gained extensive hands-on experience in modern frontend development, REST APIs, and database design during my internship at Tachlog Pvt Ltd.',
   location: 'Trivandrum, India',
-  email: 'advaithrenjith2004@gmail.com',
+  email: 'advaithanjanarenjith@gmail.com',
   socialLinks: {
     github: 'https://github.com/advaith-renjith-2004',
     linkedin: 'https://linkedin.com/in/advaith-renjith',
