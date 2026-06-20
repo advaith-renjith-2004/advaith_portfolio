@@ -39,7 +39,7 @@ export const useUIStore = create<UIState>()(
   persist(
     (set) => ({
       // Initial state
-      theme: 'system',
+      theme: 'light',
       isAdmin: false,
       isEditMode: false,
 
@@ -51,9 +51,7 @@ export const useUIStore = create<UIState>()(
         if (typeof window !== 'undefined') {
           const resolvedTheme =
             theme === 'system'
-              ? window.matchMedia('(prefers-color-scheme: dark)').matches
-                ? 'dark'
-                : 'light'
+              ? 'light'
               : theme
 
           document.documentElement.classList.remove('light', 'dark')

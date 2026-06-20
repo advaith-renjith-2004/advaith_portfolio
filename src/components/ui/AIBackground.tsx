@@ -163,12 +163,12 @@ export function AIBackground() {
     window.addEventListener("mousemove", handleMouseMove);
 
     // ── pre-render scanlines to offscreen canvas ──────────────────────────
-    const buildScanlines = (w: number, h: number) => {
+    const buildScanlines = (w: number, h: number, isDark: boolean) => {
       const sc = document.createElement("canvas");
       sc.width = w;
       sc.height = h;
       const sctx = sc.getContext("2d")!;
-      sctx.fillStyle = "rgba(255,255,255,0.015)";
+      sctx.fillStyle = isDark ? "rgba(255,255,255,0.015)" : "rgba(0,0,0,0.015)";
       for (let y = 0; y < h; y += 4) {
         sctx.fillRect(0, y, w, 1);
       }
@@ -183,7 +183,8 @@ export function AIBackground() {
       initParticles();
       initDustMotes();
       if (!isMobile) {
-        buildScanlines(canvas.width, canvas.height);
+        const isDark = document.documentElement.classList.contains("dark");
+        buildScanlines(canvas.width, canvas.height, isDark);
       }
     };
 
@@ -289,13 +290,13 @@ export function AIBackground() {
     };
 
     // ── draw grid pattern ─────────────────────────────────────────────────
-    const drawGrid = (time: number) => {
+    const drawGrid = (time: number, isDark: boolean) => {
       const W = canvas.width,
         H = canvas.height;
       const gridSize = 50;
       const offset = (time * 0.02) % gridSize;
 
-      ctx.strokeStyle = "rgba(255,255,255,0.03)";
+      ctx.strokeStyle = isDark ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.03)";
       ctx.lineWidth = 0.5;
 
       for (let x = -offset; x < W + gridSize; x += gridSize) {
@@ -312,6 +313,8 @@ export function AIBackground() {
       }
     };
 
+    let lastIsDark = typeof document !== 'undefined' && document.documentElement.classList.contains("dark");
+
     // ── draw loop ─────────────────────────────────────────────────────────
     const draw = () => {
       const nodes = nodesRef.current;
@@ -321,13 +324,27 @@ export function AIBackground() {
       const W = canvas.width,
         H = canvas.height;
 
-      // Pure black background
-      ctx.fillStyle = `rgba(${BG},1)`;
+      const isDark = document.documentElement.classList.contains("dark");
+      if (isDark !== lastIsDark) {
+        if (!isMobile) {
+          buildScanlines(W, H, isDark);
+        }
+        lastIsDark = isDark;
+      }
+
+      // Dynamic colors
+      const currentBG = isDark ? "0,0,0" : "255,255,255";
+      const currentNodeBright = isDark ? "rgba(255,255,255," : "rgba(0,0,0,";
+      const currentEdgeColor = isDark ? "255,255,255" : "0,0,0";
+      const currentParticleColor = isDark ? "255,255,255" : "0,0,0";
+
+      // Pure background
+      ctx.fillStyle = `rgba(${currentBG},1)`;
       ctx.fillRect(0, 0, W, H);
 
       // Subtle grid (skip on mobile)
       if (!isMobile) {
-        drawGrid(frameRef.current);
+        drawGrid(frameRef.current, isDark);
       }
 
       // Scanlines via pre-rendered offscreen canvas (skip on mobile)
@@ -380,13 +397,15 @@ export function AIBackground() {
         if (drawX < -50 || drawX > W + 50 || drawY < -50 || drawY > H + 50)
           continue;
 
+        const shadowColorNear = isDark ? "rgba(235,242,255,0.56)" : "rgba(100,116,139,0.3)";
+        const shadowColorFar = isDark ? "rgba(229,236,252,0.34)" : "rgba(100,116,139,0.15)";
+        const dustMoteFill = isDark ? "rgba(248,250,255,0.97)" : "rgba(100,116,139,0.8)";
+
         ctx.save();
         ctx.globalAlpha = opacity;
         ctx.shadowBlur = mote.isNear ? 24 : 14;
-        ctx.shadowColor = mote.isNear
-          ? "rgba(235,242,255,0.56)"
-          : "rgba(229,236,252,0.34)";
-        ctx.fillStyle = "rgba(248,250,255,0.97)";
+        ctx.shadowColor = mote.isNear ? shadowColorNear : shadowColorFar;
+        ctx.fillStyle = dustMoteFill;
         ctx.beginPath();
         ctx.arc(drawX, drawY, mote.size * 0.5, 0, Math.PI * 2);
         ctx.fill();
@@ -405,7 +424,7 @@ export function AIBackground() {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${PARTICLE_COLOR},${p.alpha})`;
+        ctx.fillStyle = `rgba(${currentParticleColor},${p.alpha})`;
         ctx.fill();
       }
 
@@ -469,7 +488,7 @@ export function AIBackground() {
         ctx.beginPath();
         ctx.moveTo(nodes[edge.i].x, nodes[edge.i].y);
         ctx.lineTo(nodes[edge.j].x, nodes[edge.j].y);
-        ctx.strokeStyle = `rgba(${EDGE_COLOR},${alpha.toFixed(3)})`;
+        ctx.strokeStyle = `rgba(${currentEdgeColor},${alpha.toFixed(3)})`;
         ctx.stroke();
       }
 
@@ -483,14 +502,14 @@ export function AIBackground() {
           // Core dot only, dimmed
           ctx.beginPath();
           ctx.arc(n.x, n.y, n.radius * ps, 0, Math.PI * 2);
-          ctx.fillStyle = `${NODE_BRIGHT}${(frac * 0.25).toFixed(3)})`;
+          ctx.fillStyle = `${currentNodeBright}${(frac * 0.25).toFixed(3)})`;
           ctx.fill();
         } else {
           // Inactive nodes: single small flat dot
           const coreAlpha = 0.08 + n.layer * 0.04;
           ctx.beginPath();
           ctx.arc(n.x, n.y, n.radius * ps, 0, Math.PI * 2);
-          ctx.fillStyle = `${NODE_BRIGHT}${coreAlpha.toFixed(3)})`;
+          ctx.fillStyle = `${currentNodeBright}${coreAlpha.toFixed(3)})`;
           ctx.fill();
         }
       }
@@ -512,10 +531,11 @@ export function AIBackground() {
         const tx = from.x + (to.x - from.x) * t0;
         const ty = from.y + (to.y - from.y) * t0;
 
+        const packetColor = isDark ? "255,255,255" : "0,0,0";
         const tg = ctx.createLinearGradient(tx, ty, px, py);
-        tg.addColorStop(0, "rgba(255,255,255,0)");
-        tg.addColorStop(0.6, "rgba(255,255,255,0.06)");
-        tg.addColorStop(1, "rgba(255,255,255,0.12)");
+        tg.addColorStop(0, `rgba(${packetColor},0)`);
+        tg.addColorStop(0.6, `rgba(${packetColor},0.06)`);
+        tg.addColorStop(1, `rgba(${packetColor},0.12)`);
         ctx.beginPath();
         ctx.moveTo(tx, ty);
         ctx.lineTo(px, py);
@@ -523,9 +543,10 @@ export function AIBackground() {
         ctx.lineWidth = 0.8;
         ctx.stroke();
 
-        const hg = ctx.createRadialGradient(px, py, 0, px, py, 3);
-        hg.addColorStop(0, "rgba(255,255,255,0.18)");
-        hg.addColorStop(1, "rgba(255,255,255,0)");
+        // glowing tip
+        const hg = ctx.createRadialGradient(px, py, 0, px, py, 4);
+        hg.addColorStop(0, `rgba(${packetColor},0.18)`);
+        hg.addColorStop(1, `rgba(${packetColor},0)`);
         ctx.beginPath();
         ctx.arc(px, py, 3, 0, Math.PI * 2);
         ctx.fillStyle = hg;
@@ -561,7 +582,10 @@ export function AIBackground() {
       initNodes();
       initParticles();
       initDustMotes();
-      if (!isMobile) buildScanlines(canvas.width, canvas.height);
+      if (!isMobile) {
+        const isDark = document.documentElement.classList.contains("dark");
+        buildScanlines(canvas.width, canvas.height, isDark);
+      }
       draw();
     };
 

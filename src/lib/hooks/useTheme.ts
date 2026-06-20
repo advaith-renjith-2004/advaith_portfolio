@@ -5,12 +5,14 @@ import { useEffect, useState } from 'react'
 type Theme = 'light' | 'dark' | 'system'
 
 export function useTheme() {
-  const [theme, setTheme] = useState<Theme>('system')
+  const [theme, setTheme] = useState<Theme>('light')
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') as Theme
     if (savedTheme) {
       setTheme(savedTheme)
+    } else {
+      setTheme('light')
     }
   }, [])
 
