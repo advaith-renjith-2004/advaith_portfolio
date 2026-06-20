@@ -408,7 +408,7 @@ INSERT INTO public.personal_info (id, full_name, title, email, phone, linkedin_u
         NULL,
         'https://linkedin.com/in/advaith-renjith',
         'Trivandrum, India',
-        'Final-year Computer Science student specializing in building responsive web applications and designing robust application architectures. Gained extensive hands-on experience in modern frontend development, REST APIs, and database design during my internship at Tachlog Pvt Ltd.',
+        'Final-year Electrical and Computer Engineering student specializing in building responsive web applications and designing robust application architectures. Gained extensive hands-on experience in modern frontend development, REST APIs, and database design during my internship at Tachlog Pvt Ltd.',
         'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200',
         'https://github.com/advaith-renjith-2004',
         NULL
@@ -444,7 +444,9 @@ INSERT INTO tags (id, name, slug, category, color) VALUES
     ('d3333333-3333-3333-3333-333333333333', 'VS Code', 'vscode', 'tool', '#007ACC'),
     ('f1111111-1111-1111-1111-111111111111', 'REST APIs', 'rest-apis', 'concept', '#6366F1'),
     ('f2222222-2222-2222-2222-222222222222', 'App Architecture', 'app-architecture', 'concept', '#8B5CF6'),
-    ('f3333333-3333-3333-3333-333333333333', 'RAG / AI Search', 'rag-ai-search', 'concept', '#00E676')
+    ('f3333333-3333-3333-3333-333333333333', 'RAG / AI Search', 'rag-ai-search', 'concept', '#00E676'),
+    ('tag-kotlin-id-00000000000000', 'Kotlin', 'kotlin', 'language', '#7F52FF'),
+    ('tag-dart-id-0000000000000000', 'Dart', 'dart', 'language', '#00B4AB')
 ON CONFLICT (id) DO NOTHING;
 
 -- About Card
@@ -456,8 +458,8 @@ INSERT INTO cards (id, column_id, card_type, position, title, subtitle, preview_
         0,
         'Welcome to My Portfolio',
         'College Student & Dev',
-        'Final-year Computer Science student interested in Web Development and Application Architecture.',
-        E'# About Me\n\nI''m a passionate final-year Computer Science student going into my senior year. I enjoy coding, designing clean UI layouts, and structuring robust application backends. \n\n## My Journey\n- **Internship at Tachlog Pvt Ltd**: Gained hands-on experience building web apps and understanding end-to-end application architecture.\n- **B.Tech Studies**: Currently focusing on software engineering, database design, and systems.\n\n## Areas of Focus\n- **Frontend Development**: React, Next.js, Tailwind CSS\n- **Backend Engineering**: Node.js, REST APIs, PostgreSQL\n- **Design & Architecture**: Designing data schemas and modular code structures\n\nFeel free to interact with my project board to explore my background!',
+        'Final-year Electrical and Computer Engineering student interested in Web Development and Application Architecture.',
+        E'# About Me\n\nI''m a passionate final-year Electrical and Computer Engineering student going into my senior year at Mar Baselios College of Engineering and Technology. I enjoy coding, designing clean UI layouts, and structuring robust application architectures. \n\n## My Journey\n- **Internship at Tachlog Pvt Ltd**: Gained hands-on experience building web apps and understanding end-to-end application architecture.\n- **B.Tech Studies**: Currently focusing on software engineering, database design, and embedded systems.\n\n## Areas of Focus\n- **Frontend Development**: React, Next.js, Tailwind CSS\n- **Backend Engineering**: Node.js, REST APIs, PostgreSQL\n- **Embedded Systems**: Kotlin, Dart, and systems design\n\nFeel free to interact with my project board to explore my background!',
         true
     )
 ON CONFLICT (id) DO NOTHING;
@@ -487,9 +489,9 @@ INSERT INTO cards (id, column_id, card_type, position, title, subtitle, preview_
         'project',
         0,
         'Cinematic Interactive Portfolio',
-        'Next.js + Supabase Portfolio',
-        'An interactive board-style portfolio styled with dark room aesthetics, canvas particles, a custom cursor, and Supabase integration.',
-        E'# Cinematic Interactive Portfolio\n\nThis very website! A digital resume presented as an interactive board layout.\n\n## Tech Stack\n- **Framework**: Next.js 14 (App Router)\n- **Database**: Supabase (PostgreSQL + real-time reactions)\n- **Animations**: Framer Motion for board layouts and hover transitions\n- **Aesthetics**: Custom HTML5 canvas particle background, custom cursor, and monochrome spatial HUD elements.',
+        'advaith_portfolio',
+        'An interactive board-style portfolio styled with warm editorial aesthetics, canvas particles, a custom cursor, and Supabase integration.',
+        E'# Cinematic Interactive Portfolio\n\nThis very website! A digital resume presented as an interactive board layout.\n\n## Tech Stack\n- **Framework**: Next.js 14 (App Router)\n- **Database**: Supabase (PostgreSQL + real-time reactions)\n- **Animations**: Framer Motion for board layouts\n- **Aesthetics**: Warm cream background canvas, custom cursor, and dynamic layout directions.',
         NULL,
         true
     ),
@@ -498,10 +500,70 @@ INSERT INTO cards (id, column_id, card_type, position, title, subtitle, preview_
         '33333333-3333-3333-3333-333333333333',
         'project',
         1,
-        'Legal Reference Recall System',
-        'RAG Context Retrieval Engine',
-        'A semantic retrieval project exploring legal context chunking, vector indexing, and reranking to solve legal document retrieval bottlenecks.',
-        E'# Legal Reference Recall System\n\nInspired by Natural Language Processing and information retrieval research.\n\n## Features\n- **Semantic Indexing**: Breaks down large legal documents into coherent text passages.\n- **Contextual Search**: Utilizes embeddings and cosine similarity to match legal reference queries.\n- **Clean Schema**: Structured API endpoints for quick queries.',
+        'Cortex Enterprise',
+        'Cortex-Enterprise',
+        'Cortex Enterprise is a local, voice-activated AI search engine for mini-ERPs powered by NVIDIA NIM and PostgreSQL.',
+        E'# Cortex Enterprise\n\nCortex Enterprise is a local, voice-activated AI search engine for mini-ERPs. Powered by NVIDIA NIM and PostgreSQL, it unifies cross-departmental data—from HR and accounts to circuit testing and mechanics—into a secure neural network, allowing instant data retrieval through low-latency speech recognition.',
+        NULL,
+        false
+    ),
+    (
+        'ca333333-3333-3333-3333-222222222222',
+        '33333333-3333-3333-3333-333333333333',
+        'project',
+        2,
+        'EV Fleet Manager',
+        'EV-app',
+        'A complete, real-world prototype for managing and tracking an Electric Vehicle (EV) commercial fleet.',
+        E'# EV Fleet Manager\n\nA complete, real-world prototype for managing and tracking an Electric Vehicle (EV) commercial fleet.\n\n## Features\n- **Fleet Telemetry**: Real-time fleet tracking and battery monitoring.\n- **Optimized Scheduling**: Smart routing and charging calculations.',
+        NULL,
+        false
+    ),
+    (
+        'ca333333-4444-4444-4444-222222222222',
+        '33333333-3333-3333-3333-333333333333',
+        'project',
+        3,
+        'Kinetix Focus Automation',
+        'Kinetix',
+        'Kinetix is a privacy-first mobile utility that dynamically adapts your phone''s focus mode to your environment.',
+        E'# Kinetix\n\nKinetix is a privacy-first mobile utility that dynamically adapts your phone''s focus mode to your environment. Using native hardware sensors, ambient audio metering, and Wi-Fi anchors, it automates notifications and device states with zero user intervention and optimized battery consumption. All processing happens entirely on-device.',
+        NULL,
+        false
+    ),
+    (
+        'ca333333-5555-5555-5555-222222222222',
+        '33333333-3333-3333-3333-333333333333',
+        'project',
+        4,
+        'Memory Box Reminders',
+        'memory_box',
+        'A reminder app built specially for giving location based reminder system.',
+        E'# Memory Box\n\nA reminder app built specially for giving location based reminder system.\n\n## Features\n- **Location Triggers**: Set task reminders that trigger upon entering geofenced areas.\n- **On-Device Geocoding**: Local task alarms designed to save battery.',
+        NULL,
+        false
+    ),
+    (
+        'ca333333-6666-6666-6666-222222222222',
+        '33333333-3333-3333-3333-333333333333',
+        'project',
+        5,
+        'SubZero Spending Console',
+        'subzero_website',
+        'SubZero is a subscription management console built to solve hidden monthly leaks.',
+        E'# SubZero\n\nSubZero is a subscription management console built to solve a simple problem: hidden monthly leaks. It gives you an active, real-time look at your monthly spend and annual burn rate in a clean, HUD-style dashboard. Beyond telemetry, SubZero helps you take action with pre-loaded cancellation routes.',
+        NULL,
+        false
+    ),
+    (
+        'ca333333-7777-7777-7777-222222222222',
+        '33333333-3333-3333-3333-333333333333',
+        'project',
+        6,
+        'VibeShift Music Discovery',
+        'vibeshift_music',
+        'A visual music discovery platform where users interact with a digital canvas to generate Spotify playlists matching their mood.',
+        E'# VibeShift Music\n\nA visual music discovery platform where users interact with a digital canvas to adjust energy, weather, and colors. The app translates these aesthetic choices into Spotify API audio metrics to generate custom, playable playlists matching their mood.',
         NULL,
         false
     )
@@ -548,12 +610,12 @@ INSERT INTO cards (id, column_id, card_type, position, title, subtitle, date_sta
         '55555555-5555-5555-5555-555555555555',
         'education',
         0,
-        'B.Tech in Computer Science',
-        'Engineering College (MBCET)',
+        'B.Tech in Electrical and Computer Engineering',
+        'Mar Baselios College of Engineering and Technology (MBCET)',
         '2023-09-01',
         '2027-06-30',
-        'Going to final year in CS. Focusing on algorithms, software architecture, and web systems.',
-        E'## Bachelor of Technology in Computer Science & Engineering\n\n- **Status**: Entering Final Year (Current student)\n- **Key Coursework**: Data Structures, Design & Analysis of Algorithms, Database Management Systems, Software Engineering, Operating Systems.\n- **Activities**: Technical clubs, coding workshops, magazine editing, and internship integrations.'
+        'Final-year student specializing in ECE. Focusing on hardware systems, digital circuits, and computer architecture.',
+        E'## Bachelor of Technology in Electrical and Computer Engineering\n\n- **Status**: Entering Final Year (Current student)\n- **College**: Mar Baselios College of Engineering and Technology (MBCET)\n- **Key Coursework**: Computer Architecture, Digital Electronics, Signals and Systems, Microprocessors & Microcontrollers, Web Systems, and Databases.'
     )
 ON CONFLICT (id) DO NOTHING;
 
@@ -569,11 +631,24 @@ INSERT INTO card_tags (card_id, tag_id) VALUES
     ('ca333333-1111-1111-1111-111111111111', 'b2222222-2222-2222-2222-222222222222'), -- Next.js
     ('ca333333-1111-1111-1111-111111111111', 'c3333333-3333-3333-3333-333333333333'), -- Supabase
     ('ca333333-1111-1111-1111-111111111111', 'b5555555-5555-5555-5555-555555555555'), -- Tailwind CSS
-    ('ca333333-2222-2222-2222-222222222222', 'a3333333-3333-3333-3333-333333333333'), -- Python
-    ('ca333333-2222-2222-2222-222222222222', 'f3333333-3333-3333-3333-333333333333')  -- RAG
+    ('ca333333-1111-1111-1111-111111111111', 'a1111111-1111-1111-1111-111111111111'), -- TypeScript
+    ('ca333333-2222-2222-2222-222222222222', 'c1111111-1111-1111-1111-111111111111'), -- PostgreSQL
+    ('ca333333-2222-2222-2222-222222222222', 'a2222222-2222-2222-2222-222222222222'), -- JavaScript
+    ('ca333333-3333-3333-3333-222222222222', 'tag-dart-id-0000000000000000'), -- Dart
+    ('ca333333-4444-4444-4444-222222222222', 'tag-kotlin-id-00000000000000'), -- Kotlin
+    ('ca333333-5555-5555-5555-222222222222', 'tag-dart-id-0000000000000000'), -- Dart
+    ('ca333333-6666-6666-6666-222222222222', 'a2222222-2222-2222-2222-222222222222'), -- JavaScript
+    ('ca333333-7777-7777-7777-222222222222', 'a2222222-2222-2222-2222-222222222222')  -- JavaScript
 ON CONFLICT (card_id, tag_id) DO NOTHING;
 
 -- Links
 INSERT INTO links (id, card_id, label, url, link_type, position) VALUES
-    ('11111111-1111-1111-1111-111111111111', 'ca333333-1111-1111-1111-111111111111', 'GitHub', 'https://github.com/advaith-renjith-2004/advaith_portfolio', 'github', 0)
+    ('11111111-1111-1111-1111-111111111111', 'ca333333-1111-1111-1111-111111111111', 'GitHub', 'https://github.com/advaith-renjith-2004/advaith_portfolio', 'github', 0),
+    ('22222222-2222-2222-2222-222222222222', 'ca333333-2222-2222-2222-222222222222', 'GitHub', 'https://github.com/advaith-renjith-2004/Cortex-Enterprise', 'github', 0),
+    ('33333333-3333-3333-3333-333333333333', 'ca333333-3333-3333-3333-222222222222', 'GitHub', 'https://github.com/advaith-renjith-2004/EV-app', 'github', 0),
+    ('44444444-4444-4444-4444-444444444444', 'ca333333-4444-4444-4444-222222222222', 'GitHub', 'https://github.com/advaith-renjith-2004/Kinetix', 'github', 0),
+    ('55555555-5555-5555-5555-555555555555', 'ca333333-5555-5555-5555-222222222222', 'GitHub', 'https://github.com/advaith-renjith-2004/memory_box', 'github', 0),
+    ('66666666-6666-6666-6666-666666666666', 'ca333333-6666-6666-6666-222222222222', 'GitHub', 'https://github.com/advaith-renjith-2004/subzero_website', 'github', 0),
+    ('77777777-7777-7777-7777-777777777777', 'ca333333-7777-7777-7777-222222222222', 'GitHub', 'https://github.com/advaith-renjith-2004/vibeshift_music', 'github', 0)
 ON CONFLICT (id) DO NOTHING;
+

@@ -46,7 +46,7 @@ export function AboutPanel({
   return (
     <aside
       className={cn(
-        'flex flex-col rounded-xl border border-white/5 bg-zinc-950/40 shadow-sm backdrop-blur-md transition-all duration-300',
+        'flex flex-col rounded-xl border border-border/60 bg-card/45 dark:border-white/5 dark:bg-zinc-950/40 shadow-sm backdrop-blur-md transition-all duration-300',
         'relative w-full md:sticky md:top-[88px] md:w-[280px] lg:w-[320px]',
         'md:h-fit'
       )}
@@ -80,29 +80,29 @@ export function AboutPanel({
             />
           </div>
           <div>
-            <h1 className="text-[1.875rem] font-bold leading-tight">{name}</h1>
-            <p className="mt-1 text-base font-medium text-muted-foreground">{title}</p>
+            <h1 className="text-[2.25rem] font-bold leading-tight font-serif tracking-tight">{name}</h1>
+            <p className="mt-1.5 text-[17px] font-semibold text-primary/95">{title}</p>
           </div>
         </div>
 
         <div className="h-px w-full bg-border" />
 
         {/* Bio */}
-        <p className="text-sm leading-relaxed text-muted-foreground">{bio}</p>
+        <p className="text-[16px] leading-relaxed text-foreground/90 font-sans">{bio}</p>
 
         <div className="h-px w-full bg-border" />
 
         {/* Details */}
-        <div className="flex flex-col gap-3 text-sm">
-          <div className="flex items-center gap-3 text-muted-foreground">
-            <MapPin className="h-4 w-4 shrink-0" />
+        <div className="flex flex-col gap-3 text-[15.5px]">
+          <div className="flex items-center gap-3 text-foreground/85">
+            <MapPin className="h-[18px] w-[18px] shrink-0 text-primary" />
             <span>{location}</span>
           </div>
           <a
             href={`mailto:${email}`}
-            className="flex items-center gap-3 text-muted-foreground transition-colors hover:text-foreground"
+            className="flex items-center gap-3 text-foreground/85 transition-colors hover:text-primary"
           >
-            <Mail className="h-4 w-4 shrink-0" />
+            <Mail className="h-[18px] w-[18px] shrink-0 text-primary" />
             <span className="truncate">{email}</span>
           </a>
         </div>

@@ -15,15 +15,15 @@ export function CardContent({ content, className }: CardContentProps) {
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeHighlight]}
         components={{
-          h1: ({ children }) => <h1 className="mb-4 mt-6 text-2xl font-bold">{children}</h1>,
-          h2: ({ children }) => <h2 className="mb-3 mt-5 text-xl font-bold">{children}</h2>,
-          h3: ({ children }) => <h3 className="mb-2 mt-4 text-lg font-bold">{children}</h3>,
+          h1: ({ children }) => <h1 className="mb-4 mt-6 text-3xl font-extrabold font-serif text-foreground">{children}</h1>,
+          h2: ({ children }) => <h2 className="mb-3 mt-5 text-2xl font-bold font-serif text-foreground">{children}</h2>,
+          h3: ({ children }) => <h3 className="mb-2 mt-4 text-xl font-bold font-serif text-foreground">{children}</h3>,
           p: ({ children }) => (
-            <p className="mb-4 leading-relaxed text-muted-foreground">{children}</p>
+            <p className="mb-4 text-[16px] md:text-[17px] leading-relaxed text-foreground/90">{children}</p>
           ),
-          ul: ({ children }) => <ul className="mb-4 list-disc space-y-1 pl-6">{children}</ul>,
-          ol: ({ children }) => <ol className="mb-4 list-decimal space-y-1 pl-6">{children}</ol>,
-          li: ({ children }) => <li className="pl-1">{children}</li>,
+          ul: ({ children }) => <ul className="mb-4 list-disc space-y-1.5 pl-6 text-[16px] md:text-[17px] text-foreground/90">{children}</ul>,
+          ol: ({ children }) => <ol className="mb-4 list-decimal space-y-1.5 pl-6 text-[16px] md:text-[17px] text-foreground/90">{children}</ol>,
+          li: ({ children }) => <li className="pl-1 leading-relaxed">{children}</li>,
           code: ({ className, children, ...props }: any) => {
             const match = /language-(\w+)/.exec(className || '')
             const isInline = !match

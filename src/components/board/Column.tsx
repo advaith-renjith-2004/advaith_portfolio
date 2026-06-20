@@ -145,10 +145,10 @@ export function Column({ column, cards, isAdmin = false, onCardClick, isVertical
       {/* Column Header */}
       <div className="group flex items-center justify-between border-b border-transparent px-4 py-3 transition-colors hover:border-border">
         <div className="flex items-center gap-2">
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+          <h3 className="text-[15.5px] md:text-[16px] font-black uppercase tracking-widest text-foreground">
             {column.title}
           </h3>
-          <span className="flex h-5 min-w-[20px] items-center justify-center rounded-full bg-secondary px-1.5 text-xs font-medium text-secondary-foreground">
+          <span className="flex h-[22px] min-w-[22px] items-center justify-center rounded-full border border-border/80 bg-secondary px-1.5 text-[12px] font-bold text-foreground">
             {cards.length}
           </span>
         </div>

@@ -40,7 +40,7 @@ export function CardTags({ tags, maxVisible = 3, className }: CardTagsProps) {
         <span
           key={tag.id}
           className={cn(
-            'inline-flex items-center rounded border px-2 py-0.5 font-mono text-[10px] font-medium md:text-xs',
+            'inline-flex items-center rounded border px-2.5 py-0.5 font-mono text-[11px] font-semibold md:text-[12.5px] tracking-tight',
             getTagStyles(tag.category)
           )}
         >
@@ -49,7 +49,7 @@ export function CardTags({ tags, maxVisible = 3, className }: CardTagsProps) {
       ))}
 
       {overflowCount > 0 && (
-        <span className="inline-flex items-center rounded border border-border bg-secondary px-1.5 py-0.5 font-mono text-[10px] font-medium text-secondary-foreground md:text-xs">
+        <span className="inline-flex items-center rounded border border-border bg-secondary px-2 py-0.5 font-mono text-[11px] font-semibold text-secondary-foreground md:text-[12.5px]">
           +{overflowCount}
         </span>
       )}

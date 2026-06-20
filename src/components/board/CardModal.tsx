@@ -33,12 +33,12 @@ export function CardModal({ card, isOpen, onClose, onReactionAdd }: CardModalPro
           <div className="pr-8">
             <h2
               id="modal-title"
-              className="text-xl font-bold leading-tight tracking-tight sm:text-2xl"
+              className="text-2xl font-bold leading-tight tracking-tight sm:text-3xl font-serif text-foreground"
             >
               {card.title}
             </h2>
             {card.subtitle && (
-              <p className="mt-1 text-sm font-medium text-muted-foreground sm:text-base">
+              <p className="mt-1.5 text-[16px] font-semibold text-primary sm:text-[18px]">
                 {card.subtitle}
               </p>
             )}

@@ -17,7 +17,7 @@ export function CardDateRange({ startDate, endDate, className }: CardDateRangePr
         className
       )}
     >
-      <span className="font-mono text-[10px] font-medium uppercase tracking-tight text-muted-foreground md:text-xs">
+      <span className="font-mono text-[11px] font-semibold uppercase tracking-tight text-muted-foreground md:text-[12.5px]">
         {formatDateRange(startDate, endDate)}
       </span>
     </div>

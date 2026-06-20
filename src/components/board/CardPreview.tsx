@@ -80,8 +80,8 @@ export function CardPreview({
         }
       }}
       className={cn(
-        'group relative flex cursor-pointer select-none flex-col gap-3 overflow-hidden rounded-lg border border-white/5 bg-zinc-950/40 p-4 pl-6 shadow-sm backdrop-blur-sm transition-all duration-300 ease-out',
-        'hover:-translate-y-0.5 hover:border-white/20 hover:shadow-[0_8px_30px_rgb(0,0,0,0.6)]',
+        'group relative flex cursor-pointer select-none flex-col gap-3 overflow-hidden rounded-lg border border-border/60 bg-card/45 p-4 pl-6 shadow-sm backdrop-blur-sm transition-all duration-300 ease-out dark:border-white/5 dark:bg-zinc-950/40',
+        'hover:-translate-y-0.5 hover:border-primary/40 dark:hover:border-white/20 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] dark:hover:shadow-[0_8px_30px_rgba(0,0,0,0.6)]',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2',
         isDragging && 'z-50 rotate-3 scale-[1.02] cursor-grabbing opacity-95 shadow-xl',
         className
@@ -100,9 +100,9 @@ export function CardPreview({
               <span>Pinned</span>
             </div>
           )}
-          <h3 className="truncate pr-2 text-base font-semibold leading-tight">{card.title}</h3>
+          <h3 className="truncate pr-2 text-[19px] md:text-[20px] font-bold leading-snug tracking-tight text-foreground">{card.title}</h3>
           {card.subtitle && (
-            <p className="truncate text-sm text-muted-foreground">{card.subtitle}</p>
+            <p className="truncate text-[15px] font-semibold text-primary/95">{card.subtitle}</p>
           )}
         </div>
 
@@ -124,7 +124,7 @@ export function CardPreview({
 
       {/* Preview Text */}
       {card.preview_text && (
-        <p className="line-clamp-3 text-sm leading-relaxed text-muted-foreground">
+        <p className="line-clamp-3 text-[15.5px] leading-relaxed text-foreground/85">
           {card.preview_text}
         </p>
       )}
