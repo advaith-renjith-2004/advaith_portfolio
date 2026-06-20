@@ -107,7 +107,7 @@ export function Board({
   })
 
   return (
-    <div className="flex h-full w-full flex-col overflow-hidden">
+    <div className="flex w-full flex-col">
       {/* Status Band */}
       <StatusBand />
 
@@ -129,8 +129,8 @@ export function Board({
       />
 
       <div className={cn(
-        "columns-scroll-container flex flex-1 flex-col gap-4 overflow-y-auto p-3 md:flex-row md:gap-6 md:p-6",
-        viewMode === 'horizontal' && "md:overflow-x-auto md:overflow-y-hidden"
+        "columns-scroll-container flex flex-col gap-4 p-3 md:flex-row md:gap-6 md:p-6",
+        viewMode === 'horizontal' ? "md:overflow-x-auto md:overflow-y-hidden md:h-[calc(100vh-220px)]" : "overflow-y-visible"
       )}>
         {/* Fixed/Sticky About Panel */}
         {profileData && <AboutPanel {...profileData} />}

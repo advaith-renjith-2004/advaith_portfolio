@@ -101,7 +101,7 @@ function HomeContent() {
   const activeCard = cards.find((c) => c.id === activeCardId) || null
 
   return (
-    <main className="h-[calc(100vh-56px)] w-full bg-transparent overflow-hidden">
+    <main className="w-full bg-transparent">
       <Board
         columns={columns}
         cards={cards}

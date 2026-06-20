@@ -61,7 +61,7 @@ export default function RootLayout({
         <ToastProvider>
           <div className="relative z-10 flex min-h-screen flex-col">
             <Header />
-            <main className="flex-1 pt-14">{children}</main>
+            <main className="flex-1">{children}</main>
           </div>
         </ToastProvider>
       </body>
