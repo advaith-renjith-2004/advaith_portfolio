@@ -333,7 +333,7 @@ export function AIBackground() {
       }
 
       // Dynamic colors
-      const currentBG = isDark ? "0,0,0" : "255,255,255";
+      const currentBG = isDark ? "20,17,15" : "242,238,229";
       const currentNodeBright = isDark ? "rgba(255,255,255," : "rgba(0,0,0,";
       const currentEdgeColor = isDark ? "255,255,255" : "0,0,0";
       const currentParticleColor = isDark ? "255,255,255" : "0,0,0";

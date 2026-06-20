@@ -4,82 +4,82 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
+    --background: 34 32% 93%; /* Warm cream background (#f2eee5) */
+    --foreground: 24 15% 15%; /* Dark charcoal brown (#26211e) */
+    --card: 34 25% 95%; /* Slightly lighter warm card (#f6f3eb) */
+    --card-foreground: 24 15% 15%;
+    --popover: 34 25% 95%;
+    --popover-foreground: 24 15% 15%;
+    --primary: 28 35% 50%; /* Tan/camel accent (#bc936c) */
+    --primary-foreground: 34 32% 98%;
+    --secondary: 34 20% 88%; /* Muted cream/beige */
+    --secondary-foreground: 24 15% 15%;
+    --muted: 34 15% 86%; /* Soft cream-gray */
+    --muted-foreground: 24 10% 40%; /* Muted brown-gray */
+    --accent: 28 35% 50%;
+    --accent-foreground: 34 32% 98%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
+    --border: 34 15% 82%; /* Warm border (#ded6c8) */
+    --input: 34 15% 82%;
+    --ring: 28 35% 50%;
     --radius: 0.5rem;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --spotlight-bg: 0 0% 93%;
+    --spotlight-bg: 34 20% 88%;
   }
 
   [data-theme='dark'] {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 2%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 2%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 6%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 6%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 6%;
-    --accent-foreground: 0 0% 98%;
+    --background: 24 15% 7%; /* Dark warm chocolate #14110f */
+    --foreground: 34 30% 92%; /* Warm off-white/cream #ebe3db */
+    --card: 24 15% 9%; /* Slightly lighter dark chocolate #1a1715 */
+    --card-foreground: 34 30% 92%;
+    --popover: 24 15% 9%;
+    --popover-foreground: 34 30% 92%;
+    --primary: 28 35% 56%; /* Warm camel accent #c29d7a */
+    --primary-foreground: 24 15% 7%;
+    --secondary: 24 10% 12%; /* Muted dark chocolate */
+    --secondary-foreground: 34 30% 92%;
+    --muted: 24 10% 12%;
+    --muted-foreground: 34 10% 64%; /* Muted cream-gray */
+    --accent: 28 35% 56%;
+    --accent-foreground: 24 15% 7%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 8%;
-    --input: 0 0% 8%;
-    --ring: 240 4.9% 83.9%;
-    --spotlight-bg: 0 0% 8%;
+    --border: 24 10% 15%; /* Warm dark border */
+    --input: 24 10% 15%;
+    --ring: 28 35% 56%;
+    --spotlight-bg: 24 10% 14%;
   }
   .dark {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 2%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 2%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 4%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 4%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 5%;
-    --accent-foreground: 0 0% 98%;
+    --background: 24 15% 7%; /* Dark warm chocolate #14110f */
+    --foreground: 34 30% 92%; /* Warm off-white/cream #ebe3db */
+    --card: 24 15% 9%; /* Slightly lighter dark chocolate #1a1715 */
+    --card-foreground: 34 30% 92%;
+    --popover: 24 15% 9%;
+    --popover-foreground: 34 30% 92%;
+    --primary: 28 35% 56%; /* Warm camel accent #c29d7a */
+    --primary-foreground: 24 15% 7%;
+    --secondary: 24 10% 12%; /* Muted dark chocolate */
+    --secondary-foreground: 34 30% 92%;
+    --muted: 24 10% 12%;
+    --muted-foreground: 34 10% 64%; /* Muted cream-gray */
+    --accent: 28 35% 56%;
+    --accent-foreground: 24 15% 7%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 6%;
-    --input: 0 0% 6%;
-    --ring: 0 0% 83.1%;
+    --border: 24 10% 15%; /* Warm dark border */
+    --input: 24 10% 15%;
+    --ring: 28 35% 56%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
-    --spotlight-bg: 0 0% 8%;
+    --spotlight-bg: 24 10% 14%;
   }
 }
 
@@ -96,7 +96,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif tracking-wide;
+    @apply font-sans font-bold tracking-tight;
   }
 }
 
