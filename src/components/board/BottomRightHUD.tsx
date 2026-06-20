@@ -86,46 +86,22 @@ export function BottomRightHUD() {
   const scrollContainerRef = useRef<HTMLElement | null>(null)
 
   useEffect(() => {
-    // Find scrollable board container
-    const boardContainer = document.querySelector('.columns-scroll-container') as HTMLElement | null
-    scrollContainerRef.current = boardContainer
-
-    if (!boardContainer) return
-
     const onScroll = () => {
-      const isDesktop = window.innerWidth >= 768
-      
-      if (isDesktop) {
-        // Track horizontal scroll progress on desktop
-        const maxScrollLeft = boardContainer.scrollWidth - boardContainer.clientWidth
-        const progress = maxScrollLeft > 0 ? (boardContainer.scrollLeft / maxScrollLeft) * 100 : 0
-        setExplored((prev) => Math.max(prev, Math.round(progress)))
-        setShowTop(boardContainer.scrollLeft > 200)
-      } else {
-        // Track vertical scroll progress on mobile
-        const maxScrollTop = boardContainer.scrollHeight - boardContainer.clientHeight
-        const progress = maxScrollTop > 0 ? (boardContainer.scrollTop / maxScrollTop) * 100 : 0
-        setExplored((prev) => Math.max(prev, Math.round(progress)))
-        setShowTop(boardContainer.scrollTop > boardContainer.clientHeight * 0.4)
-      }
+      const scrollTop = window.scrollY || document.documentElement.scrollTop
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight
+      const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0
+      setExplored((prev) => Math.max(prev, Math.round(progress)))
+      setShowTop(scrollTop > 400)
     }
 
-    boardContainer.addEventListener('scroll', onScroll, { passive: true })
-    // Initial run
+    window.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
 
-    return () => boardContainer.removeEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   const handleScrollToStart = () => {
-    if (scrollContainerRef.current) {
-      const isDesktop = window.innerWidth >= 768
-      if (isDesktop) {
-        scrollContainerRef.current.scrollTo({ left: 0, behavior: 'smooth' })
-      } else {
-        scrollContainerRef.current.scrollTo({ top: 0, behavior: 'smooth' })
-      }
-    }
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   const btnSize = isMobile ? 34 : 46
