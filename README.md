@@ -6,7 +6,7 @@ Live Local Preview: [http://localhost:3005](http://localhost:3005)
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
 * **Interactive Kanban Board Resume**: Filter and explore career milestones, projects, technical skills, and educational details in a structured grid layout.
 * **Spatial HUD Design**: Glassmorphic interfaces (`backdrop-blur`), subtle text glows, and premium animations built on top of a warm sand/dark chocolate design system.
@@ -18,7 +18,7 @@ Live Local Preview: [http://localhost:3005](http://localhost:3005)
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 * **Framework**: [Next.js 14 (App Router)](https://nextjs.org/)
 * **Language**: [TypeScript](https://www.typescriptlang.org/)
@@ -30,7 +30,7 @@ Live Local Preview: [http://localhost:3005](http://localhost:3005)
 
 ---
 
-## 💻 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -67,7 +67,7 @@ Live Local Preview: [http://localhost:3005](http://localhost:3005)
 
 ---
 
-## 📂 Database Setup
+## Database Setup
 
 The database schema is fully defined in `supabase_setup.sql` in the root of the project. If you wish to connect your own Supabase instance:
 1. Create a new Supabase project.
@@ -77,7 +77,7 @@ The database schema is fully defined in `supabase_setup.sql` in the root of the 
 
 ---
 
-## 🛠️ Engineering Standards & Performance
+## Engineering Standards & Performance
 
 This project is built under strict modern engineering guidelines:
 * **Local-first fallback**: Instant page loading with zero loading spin delays.
