@@ -50,7 +50,25 @@ export const MOCK_BOARD_CARDS: CardWithRelations[] = [
     date_start: null,
     date_end: null,
     preview_text: 'Final-year Electrical and Computer Engineering student interested in Web Development and Application Architecture.',
-    full_content: `# About Me\n\nI'm a passionate final-year Electrical and Computer Engineering student going into my senior year at Mar Baselios College of Engineering and Technology. I enjoy coding, designing clean UI layouts, and structuring robust application architectures. \n\n## My Journey\n- **Internship at Tachlog Pvt Ltd**: Gained hands-on experience building web apps and understanding end-to-end application architecture.\n- **B.Tech Studies**: Currently focusing on software engineering, database design, and embedded systems.\n\n## Areas of Focus\n- **Frontend Development**: React, Next.js, Tailwind CSS\n- **Backend Engineering**: Node.js, REST APIs, PostgreSQL\n- **Embedded Systems**: Kotlin, Dart, and systems design\n\nFeel free to interact with my project board to explore my background!`,
+    full_content: `# About Me
+
+I'm a passionate final-year Electrical and Computer Engineering student going into my senior year at Mar Baselios College of Engineering and Technology. I enjoy coding, designing clean UI layouts, and structuring robust application architectures.
+
+## My Journey
+- **Internship at Tachlog Pvt Ltd**: Gained hands-on experience building web apps and understanding end-to-end application architecture.
+- **B.Tech Studies**: Currently focusing on software engineering, database design, and embedded systems.
+
+## Tech & Frameworks I'm Exploring
+- **Agentic AI & ML Systems**: Experimenting with local LLM deployments, NVIDIA NIM, and Google Gemini / Antigravity integrations.
+- **Modern Web Architectures**: Digging deeper into real-time synchronization with Supabase, Next.js server-side rendering, and performant state management.
+- **Systems & Cross-Platform Development**: Expanding my programming toolkit with Rust and refining mobile application structures in Kotlin and Dart.
+
+## Outside of Code
+- **Tech Tinkering**: Building custom automation scripts, setting up local home lab servers, and configuring optimized developer environments.
+- **Creative Focus**: Exploring modern UI/UX design trends (such as warm minimalist sand-and-charcoal interfaces, tactile HUD designs, and smooth motion curves).
+- **Hobbies**: Avid reader of engineering blogs, gaming, and exploring electronics hardware integration.
+
+Feel free to interact with my project board to explore my background!`,
     thumbnail_url: null,
     is_pinned: true,
     is_visible: true,
