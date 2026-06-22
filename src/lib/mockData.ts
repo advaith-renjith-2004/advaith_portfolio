@@ -52,7 +52,7 @@ export const MOCK_BOARD_CARDS: CardWithRelations[] = [
     preview_text: 'Final-year Electrical and Computer Engineering student interested in Web Development and Application Architecture.',
     full_content: `# About Me
 
-I'm a passionate final-year Electrical and Computer Engineering student going into my senior year at Mar Baselios College of Engineering and Technology. I enjoy coding, designing clean UI layouts, and structuring robust application architectures.
+I'm a passionate final-year Electrical and Computer Engineering student going into my senior year at Mar Baselios College of Engineering and Technology (Autonomous). I enjoy coding, designing clean UI layouts, and structuring robust application architectures.
 
 ## My Journey
 - **Internship at Tachlog Pvt Ltd**: Gained hands-on experience building web apps and understanding end-to-end application architecture.
@@ -322,11 +322,11 @@ Feel free to interact with my project board to explore my background!`,
     card_type: 'education',
     position: 0,
     title: 'B.Tech in Electrical and Computer Engineering',
-    subtitle: 'Mar Baselios College of Engineering and Technology (MBCET)',
+    subtitle: 'Mar Baselios College of Engineering and Technology (Autonomous)',
     date_start: '2023-09-01',
     date_end: '2027-06-30',
     preview_text: 'Final-year student specializing in ECE. Focusing on hardware systems, digital circuits, and computer architecture.',
-    full_content: `## Bachelor of Technology in Electrical and Computer Engineering\n\n- **Status**: Entering Final Year (Current student)\n- **College**: Mar Baselios College of Engineering and Technology (MBCET)\n- **Key Coursework**: Computer Architecture, Digital Electronics, Signals and Systems, Microprocessors & Microcontrollers, Web Systems, and Databases.`,
+    full_content: `## Bachelor of Technology in Electrical and Computer Engineering\n\n- **Status**: Entering Final Year (Current student)\n- **College**: Mar Baselios College of Engineering and Technology (Autonomous)\n- **Key Coursework**: Computer Architecture, Digital Electronics, Signals and Systems, Microprocessors & Microcontrollers, Web Systems, and Databases.`,
     thumbnail_url: null,
     is_pinned: false,
     is_visible: true,
