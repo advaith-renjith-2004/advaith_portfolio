@@ -539,7 +539,7 @@ export function Board({
                       <p className="text-[14.5px] font-bold text-primary/95 mt-0.5">{exp.subtitle}</p>
                     </div>
                     {exp.date_start && (
-                      <CardDateRange startDate={exp.date_start} endDate={exp.date_end} className="self-start sm:self-center" />
+                      <CardDateRange startDate={exp.date_start} endDate={exp.date_end} className="self-start sm:self-center" format="full" />
                     )}
                   </div>
 

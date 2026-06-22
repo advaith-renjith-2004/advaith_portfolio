@@ -5,9 +5,10 @@ interface CardDateRangeProps {
   startDate: string | null
   endDate: string | null
   className?: string
+  format?: 'short' | 'full'
 }
 
-export function CardDateRange({ startDate, endDate, className }: CardDateRangeProps) {
+export function CardDateRange({ startDate, endDate, className, format = 'short' }: CardDateRangeProps) {
   if (!startDate) return null
 
   return (
@@ -18,7 +19,7 @@ export function CardDateRange({ startDate, endDate, className }: CardDateRangePr
       )}
     >
       <span className="font-mono text-[11px] font-semibold uppercase tracking-tight text-muted-foreground md:text-[12.5px]">
-        {formatDateRange(startDate, endDate)}
+        {formatDateRange(startDate, endDate, format)}
       </span>
     </div>
   )
