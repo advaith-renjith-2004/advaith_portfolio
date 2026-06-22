@@ -57,7 +57,7 @@ import {
   SpotifyLogo,
   LinuxLogo,
   GitLogo,
-  DockerLogo,
+
   HardwareChipIcon,
   WaveformIcon,
   CircuitIcon,
@@ -1119,11 +1119,6 @@ export function Board({
                   <GitLogo className="h-7 w-7 group-hover:scale-110 transition-transform" />
                   <span className="text-[14px] font-bold mt-2 text-foreground">Git & GitHub</span>
                   <span className="text-[11px] text-muted-foreground font-mono mt-0.5 leading-tight">(branch workflows)</span>
-                </div>
-                <div className="flex flex-col items-center text-center p-2.5 rounded-xl border border-transparent hover:border-border hover:bg-card/25 transition-all duration-300 group h-full">
-                  <DockerLogo className="h-7 w-7 group-hover:scale-110 transition-transform" />
-                  <span className="text-[14px] font-bold mt-2 text-foreground">Docker</span>
-                  <span className="text-[11px] text-muted-foreground font-mono mt-0.5 leading-tight">(sandboxed runtimes)</span>
                 </div>
                 <div className="flex flex-col items-center text-center p-2.5 rounded-xl border border-transparent hover:border-border hover:bg-card/25 transition-all duration-300 group h-full">
                   <LinuxLogo className="h-7 w-7 group-hover:scale-110 transition-transform" />
