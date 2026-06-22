@@ -48,9 +48,11 @@ export function StatusBand() {
         <div className="grid grid-rows-[auto_auto] gap-0.5">
           <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-primary/50">Last Shipped</span>
           <span className="font-serif text-[13.5px] font-semibold italic leading-tight text-foreground md:text-sm">
-            Legal Reference Recall System
+            Cortex Enterprise
           </span>
-          <span className="text-[11px] leading-snug text-muted-foreground">RAG context search engine</span>
+          <span className="text-[11px] leading-snug text-muted-foreground">
+            Cross-departmental ERP with integrated natural language search
+          </span>
         </div>
 
       </div>
