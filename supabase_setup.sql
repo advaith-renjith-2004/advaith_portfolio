@@ -597,9 +597,9 @@ INSERT INTO cards (id, column_id, card_type, position, title, subtitle, preview_
         'skill',
         2,
         'Development Tools',
-        'Git, GitHub, Docker',
-        'Version control, package management, and basic containerization.',
-        E'## Tools & Workflows\n\n- **Git & GitHub**: Branching, commits, pull requests, and version history.\n- **VS Code**: Custom workspace setups and extensions.\n- **Docker**: Basic containerization of web applications.'
+        'Git, GitHub, VS Code',
+        'Version control, package management, and developer environment tooling.',
+        E'## Tools & Workflows\n\n- **Git & GitHub**: Branching, commits, pull requests, and version history.\n- **VS Code**: Custom workspace setups and extensions.'
     )
 ON CONFLICT (id) DO NOTHING;
 
