@@ -364,7 +364,7 @@ export function Board({
               <div>
                 <span className="text-[11px] font-bold uppercase tracking-wider text-primary/90 font-mono">College</span>
                 <p className="text-[16.5px] md:text-[17.5px] font-bold text-foreground mt-1">
-                  Mar Baselios College of Engineering (MBCET)
+                  Mar Baselios College of Engineering and Technology (Autonomous)
                 </p>
               </div>
             </div>

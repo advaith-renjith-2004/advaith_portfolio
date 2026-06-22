@@ -87,7 +87,7 @@ INSERT INTO cards (id, column_id, card_type, position, title, subtitle, preview_
         'Welcome to My Portfolio',
         'College Student & Dev',
         'Final-year Electrical and Computer Engineering student interested in Web Development and Application Architecture.',
-        E'# About Me\n\nI''m a passionate final-year Electrical and Computer Engineering student going into my senior year at Mar Baselios College of Engineering and Technology. I enjoy coding, designing clean UI layouts, and structuring robust application architectures. \n\n## My Journey\n- **Internship at Tachlog Pvt Ltd**: Gained hands-on experience building web apps and understanding end-to-end application architecture.\n- **B.Tech Studies**: Currently focusing on software engineering, database design, and embedded systems.\n\n## Areas of Focus\n- **Frontend Development**: React, Next.js, Tailwind CSS\n- **Backend Engineering**: Node.js, REST APIs, PostgreSQL\n- **Embedded Systems**: Kotlin, Dart, and systems design\n\nFeel free to interact with my project board to explore my background!',
+        E'# About Me\n\nI''m a passionate final-year Electrical and Computer Engineering student going into my senior year at Mar Baselios College of Engineering and Technology (Autonomous). I enjoy coding, designing clean UI layouts, and structuring robust application architectures. \n\n## My Journey\n- **Internship at Tachlog Pvt Ltd**: Gained hands-on experience building web apps and understanding end-to-end application architecture.\n- **B.Tech Studies**: Currently focusing on software engineering, database design, and embedded systems.\n\n## Areas of Focus\n- **Frontend Development**: React, Next.js, Tailwind CSS\n- **Backend Engineering**: Node.js, REST APIs, PostgreSQL\n- **Embedded Systems**: Kotlin, Dart, and systems design\n\nFeel free to interact with my project board to explore my background!',
         true
     )
 ON CONFLICT (id) DO NOTHING;
@@ -251,11 +251,11 @@ INSERT INTO cards (id, column_id, card_type, position, title, subtitle, date_sta
         'education',
         0,
         'B.Tech in Electrical and Computer Engineering',
-        'Mar Baselios College of Engineering and Technology (MBCET)',
+        'Mar Baselios College of Engineering and Technology (Autonomous)',
         '2023-09-01',
         '2027-06-30',
         'Final-year student specializing in ECE. Focusing on hardware systems, digital circuits, and computer architecture.',
-        E'## Bachelor of Technology in Electrical and Computer Engineering\n\n- **Status**: Entering Final Year (Current student)\n- **College**: Mar Baselios College of Engineering and Technology (MBCET)\n- **Key Coursework**: Computer Architecture, Digital Electronics, Signals and Systems, Microprocessors & Microcontrollers, Web Systems, and Databases.'
+        E'## Bachelor of Technology in Electrical and Computer Engineering\n\n- **Status**: Entering Final Year (Current student)\n- **College**: Mar Baselios College of Engineering and Technology (Autonomous)\n- **Key Coursework**: Computer Architecture, Digital Electronics, Signals and Systems, Microprocessors & Microcontrollers, Web Systems, and Databases.'
     )
 ON CONFLICT (id) DO NOTHING;
 
