@@ -115,6 +115,18 @@ export function Cursor() {
   return (
     <>
       <style>{`
+        /* Default state (light theme): black cursor */
+        .iss-cursor {
+          color: rgba(0, 0, 0, 0.88);
+          filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.15));
+        }
+
+        /* Dark theme override: white cursor */
+        .dark .iss-cursor {
+          color: rgba(255, 255, 255, 0.92);
+          filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.25));
+        }
+
         /* Arc elements hidden by default */
         .iss-cursor .iss-arc {
           opacity: 0;
@@ -125,7 +137,7 @@ export function Cursor() {
         /* Hover state - cyan + glow */
         .iss-cursor.iss-hovering {
           color: #22d3ee !important;
-          filter: drop-shadow(0 0 7px rgba(34,211,238,0.55));
+          filter: drop-shadow(0 0 7px rgba(34,211,238,0.55)) !important;
         }
 
         /* Dish beam keyframe - arcs expand upward and fade */
@@ -181,8 +193,6 @@ export function Cursor() {
           viewBox="0 0 40 40"
           style={{
             display: "block",
-            color: "rgba(255,255,255,0.92)",
-            filter: "drop-shadow(0 0 2px rgba(255,255,255,0.25))",
             transition: "color 0.22s ease, filter 0.22s ease",
             overflow: "visible",
           }}
