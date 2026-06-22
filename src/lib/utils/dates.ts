@@ -1,11 +1,12 @@
 /**
- * Formats a date string into "MMM 'YY" format (e.g., "JAN '22")
+ * Formats a date string into "DD Month YYYY" format (e.g., "25 May 2026")
  */
 function formatDate(dateString: string): string {
   const date = new Date(dateString)
-  const month = date.toLocaleString('en-US', { month: 'short' }).toUpperCase()
-  const year = date.getFullYear().toString().slice(-2)
-  return `${month} '${year}`
+  const day = date.getDate()
+  const month = date.toLocaleString('en-US', { month: 'long' })
+  const year = date.getFullYear()
+  return `${day} ${month} ${year}`
 }
 
 /**
