@@ -474,7 +474,7 @@ INSERT INTO cards (id, column_id, card_type, position, title, subtitle, date_sta
         'Full-Stack Developer Intern',
         'Tachlog Pvt Ltd',
         '2025-05-15',
-        '2025-08-15',
+        '2028-06-28',
         'Gained extensive knowledge in creating applications, designing components, and architecting database backends.',
         E'## Internship at Tachlog Pvt Ltd\n\nDuring my internship, I worked as a Full-Stack Developer where I participated in building web applications from scratch.\n\n### Key Learnings & Tasks\n- **Application Architecture**: Learned how to structure modular frontend routes and separate logic into clean services.\n- **Backend & Database**: Wrote SQL queries, designed relational schemas in PostgreSQL, and set up REST API endpoints using Express.\n- **Frontend Build**: Developed interactive, responsive dashboards using React and Tailwind CSS.\n- **Version Control**: Practiced Git workflows, code reviews, and basic package management.',
         '{"company_size": "10-50", "skills_learned": ["Express", "PostgreSQL", "React", "Architecture"]}'::jsonb
