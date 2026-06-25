@@ -109,7 +109,7 @@ export function Sheet({
           <motion.div
             ref={containerRef}
             className={cn(
-              'relative border bg-card shadow-2xl',
+              'relative border bg-card shadow-2xl flex flex-col overflow-hidden',
               isMobile
                 ? 'pb-safe fixed inset-x-0 bottom-0 rounded-t-2xl'
                 : `w-full rounded-xl ${maxWidthClasses[desktopMaxWidth]}`,
@@ -143,7 +143,7 @@ export function Sheet({
             {title && <span className="sr-only">{title}</span>}
 
             {/* Content with scroll */}
-            <div className="overflow-y-auto overscroll-contain">{children}</div>
+            <div className="overflow-y-auto overscroll-contain flex-1">{children}</div>
           </motion.div>
         </div>
       )}
