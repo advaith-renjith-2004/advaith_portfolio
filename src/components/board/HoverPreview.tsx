@@ -81,7 +81,7 @@ export function HoverPreview({
           </div>
 
           {/* Iframe content container */}
-          <div className="relative flex-1 w-full h-full bg-card/30">
+          <div className="relative flex-1 w-full h-full bg-card/30 overflow-hidden">
             {isLoading && (
               <div className="absolute inset-0 flex items-center justify-center bg-card dark:bg-zinc-900 z-10">
                 <Loader2 className="h-6 w-6 animate-spin text-primary opacity-80" />
@@ -91,7 +91,13 @@ export function HoverPreview({
               ref={iframeRef}
               src={iframeUrl}
               onLoad={handleIframeLoad}
-              className="w-full h-full border-0 bg-transparent"
+              style={{
+                width: '1280px',
+                height: '768px',
+                transform: 'scale(0.296875)', // Scale 1280px to fit exactly in 380px container width
+                transformOrigin: 'top left',
+              }}
+              className="border-0 bg-transparent"
               sandbox="allow-scripts allow-same-origin allow-popups"
             />
           </div>
