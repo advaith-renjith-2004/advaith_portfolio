@@ -56,7 +56,7 @@ export const LINK_TYPES = [
 
 export const LINK_TYPE_LABELS: Record<LinkType, string> = {
   github: 'GitHub',
-  demo: 'Demo',
+  demo: 'Explore',
   article: 'Article',
   external: 'External Link',
 }

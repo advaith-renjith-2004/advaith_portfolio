@@ -297,17 +297,17 @@ ON CONFLICT (card_id, tag_id) DO NOTHING;
 
 INSERT INTO links (id, card_id, label, url, link_type, position) VALUES
     ('11111111-1111-1111-1111-111111111111', 'ca333333-1111-1111-1111-111111111111', 'GitHub', 'https://github.com/advaith-renjith-2004/advaith_portfolio', 'github', 0),
-    ('11111111-1111-1111-1111-111111111112', 'ca333333-1111-1111-1111-111111111111', 'Demo', 'https://advaith-portfolio-nine.vercel.app/', 'demo', 1),
+    ('11111111-1111-1111-1111-111111111112', 'ca333333-1111-1111-1111-111111111111', 'Explore', 'https://advaith-portfolio-nine.vercel.app/', 'demo', 1),
     ('22222222-2222-2222-2222-222222222222', 'ca333333-2222-2222-2222-222222222222', 'GitHub', 'https://github.com/advaith-renjith-2004/Cortex-Enterprise', 'github', 0),
-    ('22222222-2222-2222-2222-222222222223', 'ca333333-2222-2222-2222-222222222222', 'Demo', 'https://cortex-enterprise-two.vercel.app/', 'demo', 1),
+    ('22222222-2222-2222-2222-222222222223', 'ca333333-2222-2222-2222-222222222222', 'Explore', 'https://cortex-enterprise-two.vercel.app/', 'demo', 1),
     ('33333333-3333-3333-3333-333333333333', 'ca333333-3333-3333-3333-222222222222', 'GitHub', 'https://github.com/advaith-renjith-2004/EV-app', 'github', 0),
-    ('33333333-3333-3333-3333-333333333334', 'ca333333-3333-3333-3333-222222222222', 'Demo', 'https://ev-fleet-advaith-2026.web.app/', 'demo', 1),
+    ('33333333-3333-3333-3333-333333333334', 'ca333333-3333-3333-3333-222222222222', 'Explore', 'https://ev-fleet-advaith-2026.web.app/', 'demo', 1),
     ('44444444-4444-4444-4444-444444444444', 'ca333333-4444-4444-4444-222222222222', 'GitHub', 'https://github.com/advaith-renjith-2004/Kinetix', 'github', 0),
-    ('44444444-4444-4444-4444-444444444445', 'ca333333-4444-4444-4444-222222222222', 'Demo', 'https://kinetix-woad.vercel.app/', 'demo', 1),
+    ('44444444-4444-4444-4444-444444444445', 'ca333333-4444-4444-4444-222222222222', 'Explore', 'https://kinetix-woad.vercel.app/', 'demo', 1),
     ('55555555-5555-5555-5555-555555555555', 'ca333333-5555-5555-5555-222222222222', 'GitHub', 'https://github.com/advaith-renjith-2004/memory_box', 'github', 0),
-    ('55555555-5555-5555-5555-555555555556', 'ca333333-5555-5555-5555-222222222222', 'Demo', 'https://learning101advaith-3a197.web.app/', 'demo', 1),
+    ('55555555-5555-5555-5555-555555555556', 'ca333333-5555-5555-5555-222222222222', 'Explore', 'https://learning101advaith-3a197.web.app/', 'demo', 1),
     ('66666666-6666-6666-6666-666666666666', 'ca333333-6666-6666-6666-222222222222', 'GitHub', 'https://github.com/advaith-renjith-2004/subzero_website', 'github', 0),
-    ('66666666-6666-6666-6666-666666666667', 'ca333333-6666-6666-6666-222222222222', 'Demo', 'https://subzero-website-kappa.vercel.app/', 'demo', 1),
+    ('66666666-6666-6666-6666-666666666667', 'ca333333-6666-6666-6666-222222222222', 'Explore', 'https://subzero-website-kappa.vercel.app/', 'demo', 1),
     ('77777777-7777-7777-7777-777777777777', 'ca333333-7777-7777-7777-222222222222', 'GitHub', 'https://github.com/advaith-renjith-2004/vibeshift_music', 'github', 0),
-    ('77777777-7777-7777-7777-777777777778', 'ca333333-7777-7777-7777-222222222222', 'Demo', 'https://vibeshift-music-4q94-pi.vercel.app/', 'demo', 1)
+    ('77777777-7777-7777-7777-777777777778', 'ca333333-7777-7777-7777-222222222222', 'Explore', 'https://vibeshift-music-4q94-pi.vercel.app/', 'demo', 1)
 ON CONFLICT (id) DO NOTHING;
