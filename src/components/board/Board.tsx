@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState, useEffect } from 'react'
+import { useMemo, useState, useEffect, useRef } from 'react'
 import Fuse, { type IFuseOptions } from 'fuse.js'
 import type { Column as ColumnType, CardWithRelations, Tag, ProfileData } from '@/types'
 import { StatusBand } from '@/components/ui/StatusBand'
@@ -8,6 +8,7 @@ import { SkillsMarquee } from '@/components/ui/SkillsMarquee'
 import { BoardFilters } from './filters/BoardFilters'
 import { useFilterState } from '@/hooks/useFilterState'
 import { motion, AnimatePresence } from 'framer-motion'
+import { HoverPreview } from './HoverPreview'
 import { 
   Github, 
   Mail, 
@@ -110,6 +111,118 @@ export function Board({
   const [activePillar, setActivePillar] = useState<string>('perf')
   const [hoveredNode, setHoveredNode] = useState<MetricNode | null>(null)
   const isMobile = useIsMobile()
+
+  // Live website hover preview states
+  const [previewState, setPreviewState] = useState({
+    isOpen: false,
+    url: '',
+    x: 0,
+    y: 0,
+  })
+  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const activeTriggerRef = useRef<string | null>(null)
+
+  const updatePosition = (clientX: number, clientY: number) => {
+    const cardWidth = 380
+    const cardHeight = 260
+    const offset = 15
+
+    let targetX = clientX + offset
+    let targetY = clientY + offset
+
+    if (typeof window !== 'undefined') {
+      const viewportW = window.innerWidth
+      const viewportH = window.innerHeight
+
+      if (targetX + cardWidth > viewportW) {
+        targetX = clientX - cardWidth - offset
+      }
+      if (targetY + cardHeight > viewportH) {
+        targetY = clientY - cardHeight - offset
+      }
+      if (targetX < 0) targetX = offset
+      if (targetY < 0) targetY = offset
+    }
+
+    setPreviewState((prev) => ({
+      ...prev,
+      x: targetX,
+      y: targetY,
+    }))
+  }
+
+  const handleCardMouseEnter = (url: string, cardId: string, e: React.MouseEvent) => {
+    if (isMobile) return // Disable hover preview on mobile viewports
+
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current)
+      hoverTimeoutRef.current = null
+    }
+
+    activeTriggerRef.current = cardId
+
+    const cardWidth = 380
+    const cardHeight = 260
+    const offset = 15
+    let targetX = e.clientX + offset
+    let targetY = e.clientY + offset
+
+    if (typeof window !== 'undefined') {
+      const viewportW = window.innerWidth
+      const viewportH = window.innerHeight
+
+      if (targetX + cardWidth > viewportW) {
+        targetX = e.clientX - cardWidth - offset
+      }
+      if (targetY + cardHeight > viewportH) {
+        targetY = e.clientY - cardHeight - offset
+      }
+      if (targetX < 0) targetX = offset
+      if (targetY < 0) targetY = offset
+    }
+
+    setPreviewState({
+      isOpen: true,
+      url,
+      x: targetX,
+      y: targetY,
+    })
+  }
+
+  const handleCardMouseMove = (e: React.MouseEvent) => {
+    if (isMobile) return
+    updatePosition(e.clientX, e.clientY)
+  }
+
+  const handleCardMouseLeave = () => {
+    if (isMobile) return
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current)
+    }
+
+    hoverTimeoutRef.current = setTimeout(() => {
+      setPreviewState((prev) => ({ ...prev, isOpen: false }))
+      activeTriggerRef.current = null
+    }, 200)
+  }
+
+  const handlePreviewMouseEnter = () => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current)
+      hoverTimeoutRef.current = null
+    }
+  }
+
+  const handlePreviewMouseLeave = () => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current)
+    }
+
+    hoverTimeoutRef.current = setTimeout(() => {
+      setPreviewState((prev) => ({ ...prev, isOpen: false }))
+      activeTriggerRef.current = null
+    }, 200)
+  }
 
   // Load saved preference on mount
   useEffect(() => {
@@ -812,11 +925,15 @@ export function Board({
             {filteredProjectCards.map((project, idx) => {
               const bento = getBentoDetails(project.subtitle);
               const isFeatureCard = idx === 0 || idx === 3; // Make certain cards occupy more space if on desktop
+              const demoLink = project.links?.find((l) => l.link_type === 'demo')?.url
 
               return (
                 <div
                   key={project.id}
                   onClick={() => onCardClick?.(project.id)}
+                  onMouseEnter={demoLink ? (e) => handleCardMouseEnter(demoLink, project.id, e) : undefined}
+                  onMouseMove={demoLink ? handleCardMouseMove : undefined}
+                  onMouseLeave={demoLink ? handleCardMouseLeave : undefined}
                   className={cn(
                     "group relative flex flex-col justify-between overflow-hidden rounded-xl border border-border/80 bg-card/25 hover:bg-card/45 hover:border-primary/45 p-6 backdrop-blur-sm transition-all duration-300 cursor-pointer shadow-sm",
                     isFeatureCard && "md:col-span-2 lg:col-span-2 border-primary/20"
@@ -1262,6 +1379,14 @@ export function Board({
 
       </div>
 
+      <HoverPreview
+        url={previewState.url}
+        x={previewState.x}
+        y={previewState.y}
+        isOpen={previewState.isOpen}
+        onMouseEnter={handlePreviewMouseEnter}
+        onMouseLeave={handlePreviewMouseLeave}
+      />
     </div>
   )
 }

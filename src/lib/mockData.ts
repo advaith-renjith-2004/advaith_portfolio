@@ -119,7 +119,8 @@ Feel free to interact with my project board to explore my background!`,
     metadata: {},
     tags: [tagMap.get('nextjs')!, tagMap.get('supabase-db')!, tagMap.get('tailwindcss')!, tagMap.get('typescript')!].filter(Boolean),
     links: [
-      { id: 'link-1', card_id: 'card-proj-1', label: 'GitHub', url: 'https://github.com/advaith-renjith-2004/advaith_portfolio', link_type: 'github', position: 0, created_at: '' }
+      { id: 'link-1', card_id: 'card-proj-1', label: 'GitHub', url: 'https://github.com/advaith-renjith-2004/advaith_portfolio', link_type: 'github', position: 0, created_at: '' },
+      { id: 'link-1-demo', card_id: 'card-proj-1', label: 'Demo', url: 'https://advaith-portfolio-nine.vercel.app/', link_type: 'demo', position: 1, created_at: '' }
     ]
   },
   {
@@ -141,7 +142,8 @@ Feel free to interact with my project board to explore my background!`,
     metadata: {},
     tags: [tagMap.get('postgresql')!, tagMap.get('javascript')!].filter(Boolean),
     links: [
-      { id: 'link-2', card_id: 'card-proj-2', label: 'GitHub', url: 'https://github.com/advaith-renjith-2004/Cortex-Enterprise', link_type: 'github', position: 0, created_at: '' }
+      { id: 'link-2', card_id: 'card-proj-2', label: 'GitHub', url: 'https://github.com/advaith-renjith-2004/Cortex-Enterprise', link_type: 'github', position: 0, created_at: '' },
+      { id: 'link-2-demo', card_id: 'card-proj-2', label: 'Demo', url: 'https://cortex-enterprise-two.vercel.app/', link_type: 'demo', position: 1, created_at: '' }
     ]
   },
   {
@@ -163,7 +165,8 @@ Feel free to interact with my project board to explore my background!`,
     metadata: {},
     tags: [tagMap.get('dart')!].filter(Boolean),
     links: [
-      { id: 'link-3', card_id: 'card-proj-3', label: 'GitHub', url: 'https://github.com/advaith-renjith-2004/EV-app', link_type: 'github', position: 0, created_at: '' }
+      { id: 'link-3', card_id: 'card-proj-3', label: 'GitHub', url: 'https://github.com/advaith-renjith-2004/EV-app', link_type: 'github', position: 0, created_at: '' },
+      { id: 'link-3-demo', card_id: 'card-proj-3', label: 'Demo', url: 'https://ev-fleet-advaith-2026.web.app/', link_type: 'demo', position: 1, created_at: '' }
     ]
   },
   {
@@ -185,7 +188,8 @@ Feel free to interact with my project board to explore my background!`,
     metadata: {},
     tags: [tagMap.get('kotlin')!].filter(Boolean),
     links: [
-      { id: 'link-4', card_id: 'card-proj-4', label: 'GitHub', url: 'https://github.com/advaith-renjith-2004/Kinetix', link_type: 'github', position: 0, created_at: '' }
+      { id: 'link-4', card_id: 'card-proj-4', label: 'GitHub', url: 'https://github.com/advaith-renjith-2004/Kinetix', link_type: 'github', position: 0, created_at: '' },
+      { id: 'link-4-demo', card_id: 'card-proj-4', label: 'Demo', url: 'https://kinetix-woad.vercel.app/', link_type: 'demo', position: 1, created_at: '' }
     ]
   },
   {
@@ -207,7 +211,8 @@ Feel free to interact with my project board to explore my background!`,
     metadata: {},
     tags: [tagMap.get('dart')!].filter(Boolean),
     links: [
-      { id: 'link-5', card_id: 'card-proj-5', label: 'GitHub', url: 'https://github.com/advaith-renjith-2004/memory_box', link_type: 'github', position: 0, created_at: '' }
+      { id: 'link-5', card_id: 'card-proj-5', label: 'GitHub', url: 'https://github.com/advaith-renjith-2004/memory_box', link_type: 'github', position: 0, created_at: '' },
+      { id: 'link-5-demo', card_id: 'card-proj-5', label: 'Demo', url: 'https://learning101advaith-3a197.web.app/', link_type: 'demo', position: 1, created_at: '' }
     ]
   },
   {
@@ -229,7 +234,8 @@ Feel free to interact with my project board to explore my background!`,
     metadata: {},
     tags: [tagMap.get('javascript')!].filter(Boolean),
     links: [
-      { id: 'link-6', card_id: 'card-proj-6', label: 'GitHub', url: 'https://github.com/advaith-renjith-2004/subzero_website', link_type: 'github', position: 0, created_at: '' }
+      { id: 'link-6', card_id: 'card-proj-6', label: 'GitHub', url: 'https://github.com/advaith-renjith-2004/subzero_website', link_type: 'github', position: 0, created_at: '' },
+      { id: 'link-6-demo', card_id: 'card-proj-6', label: 'Demo', url: 'https://subzero-website-kappa.vercel.app/', link_type: 'demo', position: 1, created_at: '' }
     ]
   },
   {
@@ -251,7 +257,8 @@ Feel free to interact with my project board to explore my background!`,
     metadata: {},
     tags: [tagMap.get('javascript')!].filter(Boolean),
     links: [
-      { id: 'link-7', card_id: 'card-proj-7', label: 'GitHub', url: 'https://github.com/advaith-renjith-2004/vibeshift_music', link_type: 'github', position: 0, created_at: '' }
+      { id: 'link-7', card_id: 'card-proj-7', label: 'GitHub', url: 'https://github.com/advaith-renjith-2004/vibeshift_music', link_type: 'github', position: 0, created_at: '' },
+      { id: 'link-7-demo', card_id: 'card-proj-7', label: 'Demo', url: 'https://vibeshift-music-4q94-pi.vercel.app/', link_type: 'demo', position: 1, created_at: '' }
     ]
   },
   // Skills
